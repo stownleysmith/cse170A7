@@ -1,9 +1,116 @@
-p {
-    border: 1px solid black;
-    margin: 25px;
-}
-
-span {
-    border: 1px solid blue;
+body {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+      "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+      monospace;
+  }
+  
+  p {
+    margin: auto;
+    text-align: center;
+  }
+  
+  h1{
+    text-align: center;
+  }
+  
+  h2{
+    text-align: center;
+  }
+  
+  span {
     padding: 5px;
-}
+    background-color: darkslategray;
+    color: white;
+  }
+  span a{
+    text-decoration: none;
+    color: white;
+  }
+  
+  table,th{
+    border: 1px solid black;
+    margin:auto;
+    border-collapse: collapse;
+  }
+  #logoutb{
+    text-decoration: underline;
+  }
+  
+  .overlayOpen{
+    margin:10px;
+  }
+  
+  .sideMenu {
+    height: 50%; 
+    width: 0; 
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: lightblue; 
+    overflow-x: hidden; 
+    padding-top: 25px; 
+    transition: 0.5s; 
+  }
+  
+  .sideMenu a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 15px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+  }
+  
+  .sideMenu a:hover {
+    color: #406bbb;
+    background-color: rgb(210, 223, 228);
+  }
+  
+  .sideMenu .closeb {
+    background-color: lightgray;
+    color: white;
+    font-size: 15px;
+  }
+  
+  .overlay{
+    height: 100%; 
+    width: 0; 
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgb(255, 255, 255); 
+    overflow-y: hidden; 
+    padding-top: 25px; 
+    transition: 0.5s; 
+  }
+  
+  .overlay a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 15px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+  }
+  
+  .overlay a:hover {
+    color: #406bbb;
+    background-color: rgb(210, 223, 228);
+  }
+  
+  .overlay .closeb {
+    background-color: lightgray;
+    color: white;
+    font-size: 15px;
+  }

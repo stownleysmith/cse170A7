@@ -4,64 +4,141 @@
 
 <html>
 <body>
-    <p>
-        <a href="MyProfile.html">
-            My Profile
-        </a>
-                        
-        <a href="DailySummary.html">
-            Daily Summary
-        </a>
-                        
-        <a href="PersonalizedPlan.html">
-            Personalized Plan
-        </a>
-                        
-        <a href="MyFood.html">
-            My Food
-        </a>
+    <div id="sideMenu" class="sideMenu">
+        <a class="closeb" onclick="closeSideMenu()">Close Menu</a>
+        <a href="MyProfile.html">My Profile</a>
+        <a href="DailySummary.html">Daily Summary</a>
+        <a href="PersonalizedPlan.html">Personalized Plan</a> 
+        <a href="MyFood.html">My Food</a>
+        <a id="logoutb" href="../index.html">log out</a>
+    </div>
+    <span onclick=openSideMenu()>menu</span>
 
-        <a href="../index.html">
-            log out
-        </a>
+    <h1>Daily Summary</h1>
+    <p>
+        <span class="overlayOpen"
+        onclick=openFoodOverlay()> Add Food </span>
+        <span class="overlayOpen"
+        onclick="openSuggestionOverlay()"> Suggestion </span>
+
     </p>
+
+    <div id="dsFoodOverlay" class="overlay">
+        <span class="closeb" onclick="closeFoodOverlay()">Cancel</span>
+    </div>
+
+    <div id="dsSuggestionOverlay" class="overlay">
+        <h2>Suggestions</h2>
+        <span id="hp"
+        class="optionSelect"
+        onclick=optionHPSelected()>
+            High Protein
+        </span>
+        <span class="optionSelect">
+            Low Fat
+        </span>
+        <span class="optionSelect">
+            High Fiber
+        </span>
+        <span class="optionSelect">
+            Low Sugar
+        </span>
+        <span class="closeb" onclick="closeSuggestionOverlay()">Cancel</span>
+        </div>
 
     <h2> Remaining </h2>
-    <p>
-        <span> Name </span>
-        <span> Quantity </span>
-        <span> % </span>
-    </p>
-    <p>
-        <span> Name </span>
-        <span> Quantity </span>
-        <span> % </span>
-    </p>
-    <p>
-        <span> Name </span>
-        <span> Quantity </span>
-        <span> % </span>
-    </p>
+    <table id="nutrientTable">
+        <tr id="cals">
+            <th>Calories</th>
+            <th>Cal</th>
+            <th>100%</th>
+        </tr>
+        <tr id="carbs">
+            <th>Carbohydrates</th>
+            <th>g</th>
+            <th>100%</th>
+        </tr>
+        <tr id="fat">
+            <th>Fat</th>
+            <th>g</th>
+            <th>100%</th>
+        </tr>
+        <tr id="prot">
+            <th>Protein</th>
+            <th>g</th>
+            <th>100%</th>
+        </tr>
+        <tr id="fib">
+            <th>Fiber</th>
+            <th>g</th>
+            <th>100%</th>
+        </tr>
+        <tr id="sug">
+            <th>Sugar</th>
+            <th>g</th>
+            <th>100%</th>
+        </tr>
+        <tr id="sod">
+            <th>Sodium</th>
+            <th>mg</th>
+            <th>100%</th>
+        </tr>
+    </table>
 
-    <h2> Daily Summary </h2>
-    <p>
-        <span> Name </span>
-        <span> Energy </span>
-    </p>
-    <p>
-        <span> Name </span>
-        <span> Energy </span>
-    </p>
+    <!--<h2> Daily Summary </h2>
+    <table id="consumedTable">
+        <tr>
+            <th>name</th>
+            <th>energy</th>
+        </tr>        
+    </table>-->
 
-    <p>
-        <div> <a href="AddFood.html">
-            + Add Food
-        </a> </div>
-    </p>
-    <!--
-        <a href="pages/AddFood.html">
-            + Add Food
-        </a>
-    -->
+<script>
+    function openSideMenu() {
+        document.getElementById("sideMenu").style.width = "50%";
+    }
+            
+    function closeSideMenu() {
+        document.getElementById("sideMenu").style.width = "0";
+    }
+
+    function openFoodOverlay() {
+        document.getElementById("dsFoodOverlay").style.width = "100%";
+    }
+            
+    function closeFoodOverlay() {
+        document.getElementById("dsFoodOverlay").style.width = "0";
+    }
+
+    function openSuggestionOverlay(){
+        document.getElementById("dsSuggestionOverlay").style.width = "100%";
+    }
+            
+    function closeSuggestionOverlay() 
+    {
+        document.getElementById("dsSuggestionOverlay").style.width = "0";
+    }
+
+    function optionHPSelected()
+    {
+        document.getElementById("hp").style.backgroundColor ="green";
+    }
+
+    function optionHPSelected()
+    {
+        document.getElementById("lf").style.backgroundColor ="green";
+    }
+
+    function optionHPSelected()
+    {
+        document.getElementById("hf").style.backgroundColor ="green";
+    }
+
+    function optionHPSelected()
+    {
+        document.getElementById("ls").style.backgroundColor ="green";
+    }
+</script>
+
 </body>
 </html>
