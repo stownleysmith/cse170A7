@@ -104,11 +104,6 @@ body {
     transition: 0.3s;
   }
   
-  /*.overlay a:hover {
-    color: #406bbb;
-    background-color: rgb(210, 223, 228);
-  }*/
-  
   .overlay .closeb {
     background-color: lightgray;
     color: white;
@@ -134,4 +129,8 @@ body {
   }
 .rowp {
     background-color: green;
+}
+
+.optionSelect{
+    background-color: darkslategray;
 }

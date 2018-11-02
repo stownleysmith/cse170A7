@@ -182,13 +182,13 @@
     {
        var bgc = document.getElementById(id).style.backgroundColor;
        
-       if(bgc == "darkslategray")
+       if(bgc == "green")
        {
-        document.getElementById(id).style.backgroundColor= "green";
+        document.getElementById(id).style.backgroundColor= "darkslategray";
        }
        else
        {
-        document.getElementById(id).style.backgroundColor = "darkslategray";
+        document.getElementById(id).style.backgroundColor = "green";
        }
     }
 
@@ -211,7 +211,7 @@
 
     function addFood()
     {
-        var nutrients = [500,30,20,20,10,10,500];
+        var nutrients = [500,42,20,40,12,30,500];
         var rows = document.getElementsByClassName("row");
         var col2 = document.getElementsByClassName("rowp");
         for(var i=0;i<rows.length;i++)
