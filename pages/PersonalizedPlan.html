@@ -1,21 +1,23 @@
 <!doctype html>
+<link rel="stylesheet" href="../html/nutrition_plan.css">
 
 <html lang="en">
 
 <html>
-    <p>
+  <body>
+    <div class="top_bar">
         <a href="MyProfile.html">
             My Profile
         </a>
-                        
+
         <a href="DailySummary.html">
             Daily Summary
         </a>
-                        
+
         <a href="PersonalizedPlan.html">
             Personalized Plan
         </a>
-                        
+
         <a href="MyFood.html">
             My Food
         </a>
@@ -23,10 +25,94 @@
         <a href="../index.html">
             log out
         </a>
-    </p>
+    </div>
 
-    <!-- 
-        Calories 
+    <div class="content">
+
+      <h1> Nutrition Plan </h1>
+
+      <div class="nutrition_list" id="calories">
+        <form oninput="">
+          Calories
+          <label for="cal" class="lab"> cal </label>
+          <output name="remaining"> 2000
+        </form>
+      </div>
+
+      <div class="nutrition_list" id="carbohydrates">
+        <form oninput="remaining.value = parseInt(100 - parseInt(carbohydrate.value) * 1.6)">
+          Carbohydrate
+          <input id="carbohydrate">
+          <label class="per"> % </label>
+          <label for="g" class="lab"> g </label>
+          <output name="remaining"> 100
+        </form>
+      </div>
+
+      <div class="nutrition_list" id="fat">
+        <form oninput="remaining.value = parseInt(200 - parseInt(fat.value) * 1.6)">
+          Fat
+          <input id="fat">
+          <label class="per"> % </label>
+          <label for="g" class="lab"> g </label>
+          <output name="remaining"> 200
+        </form>
+      </div>
+
+      <div class="nutrition_list" id="protein">
+        <form oninput="remaining.value = parseInt(40 - parseInt(protein.value) / 40)">
+          Protein
+          <input id="protein">
+          <label class="per"> % </label>
+          <label for="g" class="lab"> g </label>
+          <output name="remaining"> 40
+        </form>
+      </div>
+
+      <div class="nutrition_list" id="fiber">
+        <form oninput="remaining.value = parseInt(30 - parseInt(fiber.value) * 1.6)">
+          Fiber
+          <label for="g" class="lab"> g </label>
+          <output name="remaining"> 30
+        </form>
+      </div>
+
+      <div class="nutrition_list" id="suger">
+        <form oninput="remaining.value = parseInt(100 - parseInt(suger.value) * 1.6)">
+          Suger
+          <label for="g" class="lab"> g </label>
+          <output name="remaining"> 100
+        </form>
+      </div>
+
+      <div class="nutrition_list" id="sodium">
+        <form oninput="remaining.value = parseInt(15 - parseInt(protein.value) * 1.6)">
+          Sodium
+          <label for="mg" class="lab"> mg </label>
+          <output name="remaining"> 15
+        </form>
+      </div>
+
+      <!-- <div class="buttons">
+        <button id="submit"> Submit </button>
+        <button id="cancel"> Cancel </button>
+      </div> -->
+    </div>
+
+<!-- <script>
+$(document).ready(function() {
+    //hide input text
+    $("input").click(function(){
+        if ($('input').attr('value') != ''){
+            $('.input').attr('value') = ''; alert('1');}
+        // if  ($('.input').attr('value') == 'Email address'){
+        //     $('.input').attr('value') = ''}
+    });
+});
+</script> -->
+  </body>
+    <!--
+        Calories
         Carbs %
         Fat %
         Protein %
