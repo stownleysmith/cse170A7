@@ -9,13 +9,13 @@ body {
 
 h1 {
   color: #5A6978;
-  font-size: 8vw;
+  font-size: 8/*vw*/;
   left: 40%;
   position: relative;
 }
 
 .nutrition_list {
-  font-size: 5vw;
+  font-size: 5/*vw*/;
   width: 100%;
   display: inline-block;
   vertical-align: top;
@@ -50,14 +50,14 @@ h1 {
   width: 15%;
   border: 2px;
   border-color: grey;
-  font-size: 5vw;
+  font-size: 5/*vw*/;
 }
 
 button {
   left: 35%;
   position: relative;
   width: 30%;
-  font-size: 5vw;
+  font-size: 5/*vw*/;
   border-radius: 5px;
   padding: 15px 32px;
   text-align: center;
