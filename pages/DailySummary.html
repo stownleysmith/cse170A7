@@ -108,37 +108,37 @@
         <tr>
             <th>Calories</th>
             <th class="row">Cal</th>
-            <th class="row%">100%</th>
+            <th class="rowp">100%</th>
         </tr>
         <tr>
             <th>Carbohydrates</th>
             <th class="row">g</th>
-            <th class="row%">100%</th>
+            <th class="rowp">100%</th>
         </tr>
         <tr>
             <th>Fat</th>
             <th class="row">g</th>
-            <th class="row%">100%</th>
+            <th class="rowp">100%</th>
         </tr>
         <tr>
             <th>Protein</th>
             <th class="row">g</th>
-            <th class="row%">100%</th>
+            <th class="rowp">100%</th>
         </tr>
         <tr>
             <th>Fiber</th>
             <th class="row">g</th>
-            <th class="row%">100%</th>
+            <th class="rowp">100%</th>
         </tr>
         <tr>
             <th>Sugar</th>
             <th class="row">g</th>
-            <th class="row%">100%</th>
+            <th class="rowp">100%</th>
         </tr>
         <tr>
             <th>Sodium</th>
             <th class="row">mg</th>
-            <th class="row%">100%</th>
+            <th class="rowp">100%</th>
         </tr>
     </table>
 
@@ -213,11 +213,15 @@
     {
         var nutrients = [500,30,20,20,10,10,500];
         var rows = document.getElementsByClassName("row");
-        var col2 = document.getElementsByClassName("row%");
+        var col2 = document.getElementsByClassName("rowp");
         for(var i=0;i<rows.length;i++)
         {
             rows[i].prepend(nutrients[i]+" ");
             col2[i].textContent = 100-nutrients[i]+"%";
+            if(100-nutrients[i]<0)
+            {
+                col2[i].style.backgroundColor = "red";
+            }
         }
         document.getElementById("consumedTable").style.visibility="visible";
     }
@@ -226,11 +230,12 @@
     {
         var nutrients = ["500","30","20","20","10","10","500"];
         var rows = document.getElementsByClassName("row");
-        var col2 = document.getElementsByClassName("row%");
+        var col2 = document.getElementsByClassName("rowp");
         for(var i=0;i<rows.length;i++)
         {
             rows[i].textContent = "g";
             col2[i].textContent = "100%";
+            col2[i].style.backgroundColor="green";
         }
         rows[0].textContent = "Cal";
         rows[rows.length-1].textContent = "mg";
