@@ -24,74 +24,133 @@
     </p>
 
     <div id="dsFoodOverlay" class="overlay">
-        <span class="closeb" onclick="closeFoodOverlay()">Cancel</span>
+        <a>
+            <a id="rhpp"
+            class="result2"
+            onclick=foodChosen()>
+                My Example Food            
+            </a>
+            <a id="rlff"
+            class="result2"
+            onclick=foodChosen()>
+                My Example Food
+            </a>
+            <a id="hfff"
+            class="result2"
+            onclick=foodChosen()>
+                My Example Food
+            </a>
+            <a id="lsff"
+            class="result2"
+            onclick=foodChosen()>
+                My Example Food
+            </a>
+        </a>
+        <a>
+            <span class="closeb" onclick="closeFoodOverlay()">Cancel</span>
+        </a>
+        
     </div>
 
     <div id="dsSuggestionOverlay" class="overlay">
         <h2>Suggestions</h2>
-        <span id="hp"
+        <a><span id="hp"
         class="optionSelect"
-        onclick=optionHPSelected()>
+        onclick=optionSelected(this.id)>
             High Protein
         </span>
-        <span class="optionSelect">
+        <span id="lf"
+        class="optionSelect"
+        onclick=optionSelected(this.id)>
             Low Fat
         </span>
-        <span class="optionSelect">
+        <span id="hf"
+        class="optionSelect"
+        onclick=optionSelected(this.id)>
             High Fiber
         </span>
-        <span class="optionSelect">
+        <span id="ls"
+        class="optionSelect"
+        onclick=optionSelected(this.id)>
             Low Sugar
-        </span>
-        <span class="closeb" onclick="closeSuggestionOverlay()">Cancel</span>
+        </span></a>
+        <a>
+            <span class="submit" onclick="suggestionsChecked()">Submit</span>
+            <span class="closeb" onclick="closeSuggestionOverlay()">Cancel</span>
+        </a>
+        <a>
+            <a id="rhp"
+            class="result"
+            onclick=suggestionChosen()>
+                High Protein Food
+            </a>
+            <a id="rlf"
+            class="result"
+            onclick=suggestionChosen()>
+                Low Fat Food
+            </a>
+            <a id="hff"
+            class="result"
+            onclick=suggestionChosen()>
+                High Fiber Food
+            </a>
+            <a id="lsf"
+            class="result"
+            onclick=suggestionChosen()>
+                Low Sugar Food
+            </a>
+        </a>
+        
         </div>
 
     <h2> Remaining </h2>
     <table id="nutrientTable">
-        <tr id="cals">
+        <tr>
             <th>Calories</th>
-            <th>Cal</th>
-            <th>100%</th>
+            <th class="row">Cal</th>
+            <th class="row%">100%</th>
         </tr>
-        <tr id="carbs">
+        <tr>
             <th>Carbohydrates</th>
-            <th>g</th>
-            <th>100%</th>
+            <th class="row">g</th>
+            <th class="row%">100%</th>
         </tr>
-        <tr id="fat">
+        <tr>
             <th>Fat</th>
-            <th>g</th>
-            <th>100%</th>
+            <th class="row">g</th>
+            <th class="row%">100%</th>
         </tr>
-        <tr id="prot">
+        <tr>
             <th>Protein</th>
-            <th>g</th>
-            <th>100%</th>
+            <th class="row">g</th>
+            <th class="row%">100%</th>
         </tr>
-        <tr id="fib">
+        <tr>
             <th>Fiber</th>
-            <th>g</th>
-            <th>100%</th>
+            <th class="row">g</th>
+            <th class="row%">100%</th>
         </tr>
-        <tr id="sug">
+        <tr>
             <th>Sugar</th>
-            <th>g</th>
-            <th>100%</th>
+            <th class="row">g</th>
+            <th class="row%">100%</th>
         </tr>
-        <tr id="sod">
+        <tr>
             <th>Sodium</th>
-            <th>mg</th>
-            <th>100%</th>
+            <th class="row">mg</th>
+            <th class="row%">100%</th>
         </tr>
     </table>
 
-    <!--<h2> Daily Summary </h2>
+    <h2> Today's Summary </h2>
     <table id="consumedTable">
         <tr>
-            <th>name</th>
-            <th>energy</th>
+            <th>Example Food</th>
+            <th>nutrients</th>
+            <th class=removeRow
+            onclick=removeFood()>remove</th>
         </tr>        
-    </table>-->
+    </table>
 
 <script>
     function openSideMenu() {
@@ -119,25 +178,73 @@
         document.getElementById("dsSuggestionOverlay").style.width = "0";
     }
 
-    function optionHPSelected()
+    function optionSelected(id)
     {
-        document.getElementById("hp").style.backgroundColor ="green";
+       var bgc = document.getElementById(id).style.backgroundColor;
+       
+       if(bgc == "darkslategray")
+       {
+        document.getElementById(id).style.backgroundColor= "green";
+       }
+       else
+       {
+        document.getElementById(id).style.backgroundColor = "darkslategray";
+       }
     }
 
-    function optionHPSelected()
+    function suggestionsChecked()
     {
-        document.getElementById("lf").style.backgroundColor ="green";
+        var options = document.getElementsByClassName("optionSelect");
+        var results = document.getElementsByClassName("result");
+        for(var i=options.length-1;i>=0;i--)
+        {
+            if(options[i].style.backgroundColor == "green")
+            {
+                document.getElementById(results[i].id).style.visibility="visible";
+            }
+        }
     }
 
-    function optionHPSelected()
+    function addFood()
     {
-        document.getElementById("hf").style.backgroundColor ="green";
+        var nutrients = [500,30,20,20,10,10,500];
+        var rows = document.getElementsByClassName("row");
+        var col2 = document.getElementsByClassName("row%");
+        for(var i=0;i<rows.length;i++)
+        {
+            rows[i].prepend(nutrients[i]+" ");
+            col2[i].textContent = 100-nutrients[i]+"%";
+        }
+        document.getElementById("consumedTable").style.visibility="visible";
     }
 
-    function optionHPSelected()
+    function removeFood()
     {
-        document.getElementById("ls").style.backgroundColor ="green";
+        var nutrients = ["500","30","20","20","10","10","500"];
+        var rows = document.getElementsByClassName("row");
+        var col2 = document.getElementsByClassName("row%");
+        for(var i=0;i<rows.length;i++)
+        {
+            rows[i].textContent = "g";
+            col2[i].textContent = "100%";
+        }
+        rows[0].textContent = "Cal";
+        rows[rows.length-1].textContent = "mg";
+        document.getElementById("consumedTable").style.visibility="hidden";
     }
+
+    function suggestionChosen()
+    {
+        addFood();
+        closeSuggestionOverlay();
+    }
+
+    function foodChosen()
+    {
+        addFood();
+        closeFoodOverlay();
+    }
+
 </script>
 
 </body>

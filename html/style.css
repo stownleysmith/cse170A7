@@ -104,13 +104,30 @@ body {
     transition: 0.3s;
   }
   
-  .overlay a:hover {
+  /*.overlay a:hover {
     color: #406bbb;
     background-color: rgb(210, 223, 228);
-  }
+  }*/
   
   .overlay .closeb {
     background-color: lightgray;
     color: white;
     font-size: 15px;
+  }
+
+  .result
+  {
+    visibility: hidden;
+    color: black;
+  }
+
+  .result:hover{
+      background-color: lightgray;
+  }
+
+  #consumedTable{
+      visibility: hidden;
+  }
+  .removeRow{
+    background-color: red;
   }
