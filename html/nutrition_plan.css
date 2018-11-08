@@ -9,17 +9,17 @@ body {
 
 h1 {
   color: #5A6978;
-  font-size: 8vw;
+  font-size: 8/*vw*/;
   left: 40%;
   position: relative;
 }
 
 .nutrition_list {
-  font-size: 5vw;
+  font-size: 5/*vw*/;
   width: 100%;
   display: inline-block;
   vertical-align: top;
-  margin:5%;
+  margin:1%;
   margin-left: 10%;
   margin-right: 10%;
   padding:2%;
@@ -29,13 +29,13 @@ h1 {
 .nutrition_list input{
   left: 75%;
   position: absolute;
-  width: 20%;
+  width: 10%;
   border-color: grey;
-  font-size: 5vw;
+  font-size: 5/*vw*/;
 }
 
 .per {
-  left: 97%;
+  left: 86%;
   position: absolute;
 }
 
@@ -50,14 +50,14 @@ h1 {
   width: 15%;
   border: 2px;
   border-color: grey;
-  font-size: 5vw;
+  font-size: 5/*vw*/;
 }
 
 button {
   left: 35%;
   position: relative;
   width: 30%;
-  font-size: 5vw;
+  font-size: 5/*vw*/;
   border-radius: 5px;
   padding: 15px 32px;
   text-align: center;
