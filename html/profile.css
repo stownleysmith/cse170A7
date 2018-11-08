@@ -1,0 +1,58 @@
+.container {
+  top:10%;
+  left: 10%;
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  padding: 5%;
+  font-size: 4vw;
+  font-family: sans-serif;
+  color: #5A6978;
+  line-height: 4vw;
+  display:table;
+  vertical-align:middle;
+}
+
+.text {
+  padding: 5%;
+}
+
+.choice {
+  padding: 3%;
+}
+
+.choice label {
+  left: 60%;
+  position: absolute;
+}
+
+.choice input {
+  width: 25px;
+  height: 25px;
+}
+
+input {
+  left: 50%;
+  position: absolute;
+  font-size: 4vw;
+  line-height: 4vw;
+  border: 1px solid grey
+}
+
+button {
+  font-size: 2vw;
+  border-radius: 5px;
+  padding: 15px 32px;
+  text-align: center;
+  left: 70%;
+  position: relative;
+}
+
+.button {
+  margin-top: 5%;
+}
+
+#submit {
+  background-color: #5A6978;
+  color: #fff
+}
