@@ -1,0 +1,39 @@
+.container {
+  top:10%;
+  left: 12.5%;
+  position: absolute;
+  width: 75%;
+  height: 100%;
+  padding: 5%;
+  font-size: 4vw;
+  line-height: 4vw;
+  display:table;
+  vertical-align:middle;
+}
+
+.text {
+  padding: 5%;
+}
+
+input {
+  /* left: 20%;
+  position: absolute; */
+  width: 85%;
+  font-size: 4vw;
+  line-height: 4vw;
+  border: 1px solid grey
+}
+
+button {
+  width: 85%;
+  font-size: 2vw;
+  border-radius: 5px;
+  padding: 15px 32px;
+  text-align: center;
+  margin-top: 5%;
+  vertical-align: middle;
+}
+
+.button {
+  padding: 5%;
+}

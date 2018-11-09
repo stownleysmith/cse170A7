@@ -1,5 +1,5 @@
 <!doctype html>
-
+<link rel="stylesheet" href="../html/profile.css">
 <html lang="en">
 
 <html>
@@ -7,15 +7,15 @@
         <a href="MyProfile.html">
             My Profile
         </a>
-            
+
         <a href="DailySummary.html">
             Daily Summary
         </a>
-            
+
         <a href="PersonalizedPlan.html">
             Personalized Plan
         </a>
-            
+
         <a href="MyFood.html">
             My Food
         </a>
@@ -24,4 +24,59 @@
             log out
         </a>
     </p>
+
+    <html>
+      <body>
+        <div class="container">
+          <div class="text">
+            <label for="name"> <b>Username</b> </label>
+            <input name="name">
+          </div>
+
+          <div class="text">
+            <label for="gender"> <b>Gender</b> </label>
+            <input name="gender">
+          </div>
+
+          <div class="text">
+            <label for="age"> <b>Age</b> </label>
+            <input name="age">
+          </div>
+
+          <div class="text">
+            <label for="height"> <b>Height</b> </label>
+            <input name="height">
+          </div>
+
+          <div class="text">
+            <label for="weight"> <b>Weight(kg)</b> </label>
+            <input name="weight">
+          </div>
+
+          <div class="text">
+            <div class="choice">
+              <b>Goal</b>
+              <input name="options" type="checkbox" value="gain_w">
+              <label for="gain_w"> Gain Weight </label> </br>
+            </div>
+
+            <div class="choice">
+              <input name="options" type="checkbox" value="lose_w">
+              <label for="lose_w"> Lose Weight </label> </br>
+            </div>
+
+            <div class="choice">
+              <input name="options" type="checkbox" value="keep_f">
+              <label for="keep_f"> Keep Fit </label> </br>
+            </div>
+
+          </div>
+
+          <button onclick="location.href='./DailySummary.html'" class="button" id="submit"> Submit </button>
+          <button class="button" id="cancel"> Cancel </button>
+        </div>
+
+      </body>
+    </html>
+
 </html>
