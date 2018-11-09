@@ -121,12 +121,38 @@ body {
     color: black;
   }
 
-  .result:hover{
-      background-color: lightgray;
+  .overlay .result2 span
+  {
+    background-color: gray;
+  }
+  .overlay .result2 .shop
+  {
+    background-color:gray;
+    display: inline;
+    color: blue;
+    margin-left: 3%;
+  }
+  .overlay .result2
+  {
+    padding: 1% 1% 1% 1%;
+    margin:1%;
+    text-decoration: none;
+    font-size: 15px;
+    color: #818181;
+  }
+  .overlay .result2 .foodAdd
+  {
+    color: green;
   }
 
-  #consumedTable{
-      visibility: hidden;
+  .result:hover{
+    background-color: lightgray;
+  }
+
+  #consumedTable td{
+    border: 1px solid black;
+    margin:auto;
+    border-collapse: collapse;
   }
 
   .removeRow {

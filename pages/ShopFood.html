@@ -1,27 +1,70 @@
 <!doctype html>
-
+<link rel="stylesheet" href="../html/shop.css">
 <html lang="en">
 
 <html>
+<body>
     <p>
-        <a href="MyProfile.html">
-            My Profile
-        </a>
             
         <a href="DailySummary.html">
-            Daily Summary
-        </a>
-            
-        <a href="PersonalizedPlan.html">
-            Personalized Plan
-        </a>
-            
-        <a href="MyFood.html">
-            My Food
+           << Back to Daily Summary
         </a>
 
         <a href="../index.html">
             log out
         </a>
     </p>
+    <div id="youAreHere"
+        onclick=openFoodMenu()>
+        •
+    </div>
+    <div id="foodPopup">
+        <p>
+            food info
+        </p>
+        <div id="buttons">
+        <a id="gotFoodB"
+            href="DailySummary.html"
+            onclick="saveFood()">
+            I got it!
+        </a>
+        <span id="closebtn"
+            onclick=closeFoodMenu()>
+            I changed my mind.
+        </span>
+        </div>
+    </div>
+
+</body>
+
+<script>
+    /*var foodOfInterest=JSON.parse(localStorage.getItem('sF'));*/
+    positionUser();
+
+    var lLocations = [8, 16, 27, 35, 46, 54, 65, 73];
+    var tLocations = [15, 36];
+function openFoodMenu()
+{
+    document.getElementById("foodPopup").style.visibility = "visible";
+}
+
+function closeFoodMenu()
+{
+    document.getElementById("foodPopup").style.visibility = "hidden";
+}
+
+function positionUser()
+{
+    var lLocations = [8, 16, 27, 35, 46, 54, 65, 73];
+    var tLocations = [15, 36];
+    document.getElementById("youAreHere").style.left = lLocations[~~(Math.random()*8)]+"%";
+    document.getElementById("youAreHere").style.top = tLocations[~~(Math.random()*2)]+"%";
+}
+
+function saveFood()
+{
+    localStorage.setItem('nF', "food");
+}
+
+</script>
 </html>

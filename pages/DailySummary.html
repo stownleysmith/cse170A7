@@ -21,38 +21,66 @@
         onclick=openFoodOverlay()> Add Food </span>
         <span class="overlayOpen"
         onclick="openSuggestionOverlay()"> Suggestion </span>
-
     </p>
 
     <div id="dsFoodOverlay" class="overlay">
         <h2> Add Food</h2>
-        <a>
-            <a id="rhpp"
-            class="result2"
+        
+            <div id="rhpp"
+            class="result2">
+            <span class="foodAdd"
             onclick=foodChosen()>
-                My Example Food            
-            </a>
-            <a id="rlff"
-            class="result2"
-            onclick=foodChosen()>
-                My Example Food
-            </a>
-            <a id="hfff"
-            class="result2"
-            onclick=foodChosen()>
-                My Example Food
-            </a>
-            <a id="lsff"
-            class="result2"
-            onclick=foodChosen()>
-                My Example Food
-            </a>
+                Add Food
+            </span>
             <a id="shopstart"
             class="shop"
+            onclick="sendFood()"
             href="ShopFood.html">
-            Shop Food
+            Shop This Food >>
             </a>
-        </a>
+            </div>
+
+            <div id="rlff"
+            class="result2">
+            <span class="foodAdd"
+            onclick=foodChosen()>
+                Add Food
+            </span>
+            <a id="shopstart"
+            class="shop"
+            onclick="sendFood()"
+            href="ShopFood.html">
+            Shop This Food >>
+            </a>
+            </div>
+
+            <div id="hfff"
+            class="result2">
+            <span class="foodAdd"
+            onclick=foodChosen()>
+                Add Food
+            </span>
+            <a id="shopstart"
+            class="shop"
+            onclick="sendFood()"
+            href="ShopFood.html">
+            Shop This Food >>
+            </a>
+            </div>
+            <div id="lsff"
+            class="result2">
+            <span class="foodAdd"
+            onclick=foodChosen()>
+                Add Food
+            </span>
+            <a id="shopstart"
+            class="shop"
+            onclick="sendFood()"
+            href="ShopFood.html">
+            Shop This Food >> </a>
+
+            </div>
+        
         <a>
             <span class="closeb" onclick="closeFoodOverlay()">Cancel</span>
         </a>
@@ -150,16 +178,66 @@
     </table>
 
     <h2> Today's Summary </h2>
-    <table id="consumedTable">
-        <tr>
-            <th>Example Food</th>
-            <th>nutrients</th>
-            <th class=removeRow
-            onclick=removeFood()>remove</th>
-        </tr>        
+    <table id="consumedTable"> 
     </table>
 
+
 <script>
+    var nutritionPlan = [2000, 167, 74, 167, 42, 42, 2300];
+    var foodNames = ["apple", "banana", "sandwich"];
+    var consumedFoods = [];
+    /*localStorage.setItem('cF', JSON.stringify(consumedFoods));*/
+    var fTotal = 0;
+    var consumedNutrition = [0,0,0,0,0,0,0];
+    var lLocations = ["8%", "16%", "27%", "35%", "46%", "54%", "65%", "73%"];
+    var tLocations = ["15%", "36%"];
+
+    if(localStorage.getItem('cN')===null) {
+    localStorage.setItem('cN', JSON.stringify(consumedNutrition));}
+
+    if(JSON.parse(localStorage.getItem('cF'))===null) {
+    localStorage.setItem('cF', JSON.stringify(consumedFoods));}
+    /*localStorage.removeItem('nF');
+    localStorage.removeItem('cN');
+    localStorage.removeItem('cF');*/
+    if(localStorage.getItem('nF')===null) {
+    localStorage.setItem('nF', "none");
+    }
+
+    setUpTable();
+
+    function setUpTable() {
+        var nutCol = document.getElementsByClassName("row");
+        var pCol = document.getElementsByClassName("rowp");
+        var cN = JSON.parse(localStorage.getItem('cN'));
+        for(var i=0;i<cN.length;i++)
+        {
+            nutCol[i].textContent = cN[i]+" g";
+        }
+        nutCol[0].textContent = cN[0] + " Cal";
+        nutCol[nutCol.length-1].textContent = cN[cN.length-1] + " mg";
+        
+        var cF = JSON.parse(localStorage.getItem('cF'));
+        for(var k=0;k<cF.length;k++)
+        {
+        var newRow = document.getElementById("consumedTable").insertRow(0);
+        var c1 = newRow.insertCell(0);
+        var c2  = newRow.insertCell(1);
+        var c3 = newRow.insertCell(2);
+        c1.innerHTML = cF[k].name;
+        c2.innerHTML = cF[k].nutrition[0]+"cal";
+        c3.innerHTML = "remove";
+        c3.style.backgroundColor = "red";
+        c3.onclick = function(){
+            removeFood(cF[newRow.rowIndex],newRow.rowIndex)};
+        }
+
+        if(localStorage.getItem('nF')!="none")
+        {
+            addFood();
+        }
+    }
+
     function openSideMenu() {
         document.getElementById("sideMenu").style.width = "40%";
     }
@@ -218,35 +296,69 @@
 
     function addFood()
     {
-        var nutrients = [500,42,20,40,12,30,500];
+        var newFood = new foodItem();
+        var cF = JSON.parse(localStorage.getItem('cF'));
+        cF.push(newFood);
+        localStorage.setItem('cF', JSON.stringify(cF));
+        var nutrients = newFood.nutrition;
         var rows = document.getElementsByClassName("row");
         var col2 = document.getElementsByClassName("rowp");
+        var cN = JSON.parse(localStorage.getItem('cN'));
+        for(var j=0;j<nutrients.length;j++)
+        {
+            cN[j]+= parseInt(nutrients[j], 10);
+        }
+        localStorage.setItem('cN', JSON.stringify(cN));
         for(var i=0;i<rows.length;i++)
         {
-            rows[i].prepend(nutrients[i]+" ");
-            col2[i].textContent = 100-nutrients[i]+"%";
-            if(100-nutrients[i]<0)
+            rows[i].textContent = cN[i]+" ";
+            col2[i].textContent = ~~(100-(100*cN[i]/nutritionPlan[i]))+"%";
+            if((100-(100*cN[i]/nutritionPlan[i]))<0)
             {
                 col2[i].style.backgroundColor = "red";
             }
         }
-        document.getElementById("consumedTable").style.visibility="visible";
+        rows[0].textContent = cN[0] + " Cal";
+        rows[rows.length-1].textContent = cN[cN.length-1] + " mg";
+        var newRow = document.getElementById("consumedTable").insertRow(0);
+        var c1 = newRow.insertCell(0);
+        var c2  = newRow.insertCell(1);
+        var c3 = newRow.insertCell(2);
+        c1.innerHTML = newFood.name;
+        c2.innerHTML = newFood.nutrition[0]+"cal";
+        c3.innerHTML = "remove";
+        c3.style.backgroundColor = "red";
+        c3.onclick = function(){
+            removeFood(cF[newRow.rowIndex],newRow.rowIndex)};
     }
 
-    function removeFood()
+    function removeFood(rfood,num)
     {
-        var nutrients = ["500","30","20","20","10","10","500"];
+        var nutrients = rfood.nutrition;
+        var cF = JSON.parse(localStorage.getItem('cF'));
+        cF.splice(num,1);
+        localStorage.setItem('cF', JSON.stringify(cF));
+        var cN = JSON.parse(localStorage.getItem('cN'));
         var rows = document.getElementsByClassName("row");
         var col2 = document.getElementsByClassName("rowp");
+        for(var j=0;j<nutrients.length;j++)
+        {
+            cN[j] -= parseInt(nutrients[j],10);
+        }
+        localStorage.setItem('cN', JSON.stringify(cN));
         for(var i=0;i<rows.length;i++)
         {
-            rows[i].textContent = "g";
-            col2[i].textContent = "100%";
-            col2[i].style.backgroundColor="green";
+            rows[i].textContent = cN[i]+" g";
+            col2[i].textContent = ~~(100-(100*cN[i]/nutritionPlan[i]))+"%";
+            if((100-(100*cN[i]/nutritionPlan[i]))>=0)
+            {
+                col2[i].style.backgroundColor = "green";
+            }
         }
-        rows[0].textContent = "Cal";
-        rows[rows.length-1].textContent = "mg";
-        document.getElementById("consumedTable").style.visibility="hidden";
+        rows[0].textContent = cN[0] + " Cal";
+        rows[rows.length-1].textContent = cN[cN.length-1] + " mg";
+        document.getElementById("consumedTable").deleteRow(num);
+        fTotal--;
     }
 
     function suggestionChosen()
@@ -261,6 +373,48 @@
         closeFoodOverlay();
     }
 
+    function sendFood()
+    {
+        /*var food = new foodItem();
+        localStorage.setItem('sF', JSON.stringify(food));*/
+        localStorage.setItem('nF', "none");
+    }
+
+    function foodItem()
+    {
+        this.num = fTotal++;
+        this.name = foodNames[~~(Math.random()*foodNames.length)];
+        /*this.lPos = lLocations[~~(Math.random()*lLocations.length())];
+        this.tPos = tLocations[~~(Math.random()*tLocations.length())];*/
+        this.calories = ~~(Math.random()*500);
+        this.carbohydrates = ~~((Math.random()*this.calories)/4);
+        this.fat = ~~((Math.random()*(this.calories-4*this.carbohydrates))/9);
+        this.protein = ~~((this.calories-(4*this.carbohydrates+9*this.fat))/4);
+        this.fiber = ~~(Math.random()*this.carbohydrates);
+        this.sugar = ~~(this.carbohydrates-this.fiber);
+        this.sodium = ~~(Math.random()*1000);
+        this.nutrition = [this.calories.toString(),this.carbohydrates.toString(), this.fat.toString(),this.protein.toString(),this.fiber.toString(),this.sugar.toString(),this.sodium.toString()];
+    }
+    foodItem.prototype.getNutrition = function()
+    {
+        return this.nutrition;
+    }
+    foodItem.prototype.getName = function()
+    {
+        return this.name;
+    }
+    foodItem.prototype.getNum = function()
+    {
+        return this.num;
+    }
+    foodItem.prototype.getLPos = function()
+    {
+        return this.lPos;
+    }
+    foodItem.prototype.getTPos = function()
+    {
+        return this.tpos;
+    }
 </script>
 
 </body>

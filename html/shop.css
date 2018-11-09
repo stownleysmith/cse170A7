@@ -1,0 +1,38 @@
+body{
+    background-image: url("StoreBackground.png");
+    background-repeat: no-repeat;
+    background-position: right top;
+    background-size: cover;
+}
+
+#youAreHere
+{
+    color:red;
+    font-size: 8vw;
+    position: fixed; left:90%; top:90%;
+}
+
+#foodPopup
+{
+    width: 30%;
+    position: fixed; left:40%; top:20%;
+    background-color: antiquewhite;
+    color: blue;
+    visibility: hidden;
+}
+
+#foodPopup p{
+    text-align: center;
+}
+
+#foodPopup div a{
+    margin:1%;
+    background-color: green;
+    text-decoration: none;
+    color: white;
+}
+#closebtn{
+    margin: 1%;
+    background-color: red;
+    color:white;
+}
