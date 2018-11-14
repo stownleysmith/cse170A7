@@ -75,3 +75,45 @@ button {
   margin-right: 10%;
   padding:2%;
 }
+
+.sideMenu {
+  height: 100%; 
+  width: 0; 
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: lightblue; 
+  overflow-x: hidden; 
+  padding-top: 25px; 
+  transition: 0.5s; 
+}
+
+#sideMenuOpen {
+  position: fixed;
+  left: 2%;
+  margin: 5%;
+  padding: 1%;
+  width: 5%;
+  text-align: center;
+}
+
+.sideMenu a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 15px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sideMenu a:hover {
+  color: #406bbb;
+  background-color: rgb(210, 223, 228);
+}
+
+.sideMenu .closeb {
+  background-color: lightgray;
+  color: white;
+  font-size: 15px;
+}

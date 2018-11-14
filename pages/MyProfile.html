@@ -3,80 +3,149 @@
 <html lang="en">
 
 <html>
-    <p>
-        <a href="MyProfile.html">
-            My Profile
-        </a>
+    <div id="sideMenu" class="sideMenu">
+        <a class="closeb" onclick="closeSideMenu()">Close Menu</a>
+        <a href="MyProfile.html">My Profile</a>
+        <a href="DailySummary.html">Daily Summary</a>
+        <a href="PersonalizedPlan.html">Personalized Plan</a> 
+        <a href="MyFood.html">My Food</a>
+        <a id="logoutb" href="../index.html">log out</a>
+    </div>
+    <button id="sideMenuOpen" onclick=openSideMenu()> menu </button>
 
-        <a href="DailySummary.html">
-            Daily Summary
-        </a>
-
-        <a href="PersonalizedPlan.html">
-            Personalized Plan
-        </a>
-
-        <a href="MyFood.html">
-            My Food
-        </a>
-
-        <a href="../index.html">
-            log out
-        </a>
-    </p>
-
-    <html>
+    
       <body>
         <div class="container">
           <div class="text">
             <label for="name"> <b>Username</b> </label>
-            <input name="name">
+            <input name="name" class="field">
           </div>
 
           <div class="text">
             <label for="gender"> <b>Gender</b> </label>
-            <input name="gender">
+            <input name="gender" class="field">
           </div>
 
           <div class="text">
             <label for="age"> <b>Age</b> </label>
-            <input name="age">
+            <input name="age" class="field">
           </div>
 
           <div class="text">
             <label for="height"> <b>Height</b> </label>
-            <input name="height">
+            <input name="height" class="field">
           </div>
 
           <div class="text">
             <label for="weight"> <b>Weight(kg)</b> </label>
-            <input name="weight">
+            <input name="weight" class="field">
           </div>
 
           <div class="text">
             <div class="choice">
               <b>Goal</b>
-              <input name="options" type="checkbox" value="gain_w">
+              <input name="options" onclick="clearChecks('0')" type="checkbox" value="gain_w"
+              class="checks">
               <label for="gain_w"> Gain Weight </label> </br>
             </div>
 
             <div class="choice">
-              <input name="options" type="checkbox" value="lose_w">
+              <input name="options" onclick="clearChecks('1')"
+              type="checkbox" value="lose_w"
+              class="checks">
               <label for="lose_w"> Lose Weight </label> </br>
             </div>
 
             <div class="choice">
-              <input name="options" type="checkbox" value="keep_f">
+              <input name="options" 
+              onclick="clearChecks('2')"
+              type="checkbox" value="keep_f"
+              class="checks">
               <label for="keep_f"> Keep Fit </label> </br>
             </div>
 
           </div>
 
-          <button onclick="location.href='./DailySummary.html'" class="button" id="submit"> Submit </button>
+          <button onclick="setFields();location.href='./DailySummary.html'" class="button" id="submit"> Submit </button>
           <button class="button" id="cancel"> Cancel </button>
         </div>
 
       </body>
-    </html>
+    
 
 </html>
+
+<script>
+setUpFields();
+function openSideMenu() {
+  document.getElementById("sideMenu").style.width = "40%";
+}
+            
+function closeSideMenu() {
+  document.getElementById("sideMenu").style.width = "0";
+}
+
+function setUpFields() {
+  var boxes = document.getElementsByClassName("field");
+  var chks = document.getElementsByClassName("checks");
+  if(localStorage.getItem('uN')===null) {}
+  else {
+    boxes[0].value = localStorage.getItem('uN');
+    boxes[1].value = localStorage.getItem('gen');
+    boxes[2].value = localStorage.getItem('age');
+    boxes[3].value = localStorage.getItem('hgt');
+    boxes[4].value = localStorage.getItem('wgt');
+  }
+
+  if(localStorage.getItem('dietOption')===null){}
+  else {
+    if(localStorage.getItem('dietOption')=="gW")
+      chks[0].checked = true;
+    if(localStorage.getItem('dietOption')=="lW")
+      chks[1].checked = true;
+    if(localStorage.getItem('dietOption')=="kF")
+      chks[2].checked = true;
+  }
+}
+
+function setFields() {
+  var boxes = document.getElementsByClassName("field");
+  var chks = document.getElementsByClassName("checks");
+  if(validInput(boxes) == "true") {
+  localStorage.setItem('uN', boxes[0].value)
+  localStorage.setItem('gen', boxes[1].value)
+  localStorage.setItem('age', boxes[2].value)
+  localStorage.setItem('hgt', boxes[3].value)
+  localStorage.setItem('wgt', boxes[4].value)
+  }
+
+  if(chks[0].checked)
+    localStorage.setItem('dietOption', "gW");
+  if(chks[1].checked)
+    localStorage.setItem('dietOption', "lW");
+  if(chks[2].checked)
+    localStorage.setItem('dietOption', "kF");
+}
+
+function clearChecks(ignore)
+{
+  var chks = document.getElementsByClassName("checks");
+  for(var i=0; i<chks.length;i++)
+    chks[i].checked = false;
+  chks[ignore].checked = true;
+}
+
+function validInput(boxes)
+{
+  var ret = "true"
+  if(boxes[1].value == "male" || boxes[1].value == "female") {}
+  else {ret = "false"}
+  if(parseInt(boxes[2].value) != NaN) {}
+  else {ret = "false"}
+  if(parseInt(boxes[3].value) != NaN) {}
+  else {ret = "false"}
+  if(parseInt(boxes[4].value) != NaN) {}
+  else {ret = "false"}
+  return ret;
+}
+</script>

@@ -6,21 +6,7 @@
 
 <html>
     <p>
-        <a href="pages/MyProfile.html">
-            My Profile
-        </a>
-
-        <a href="pages/DailySummary.html">
-            Daily Summary
-        </a>
-
-        <a href="pages/PersonalizedPlan.html">
-            Personalized Plan
-        </a>
-
-        <a href="pages/MyFood.html">
-            My Food
-        </a>
+        DIetARY
     </p>
 
     <html>
@@ -37,7 +23,7 @@
           </div>
 
           <div class="button">
-            <button onclick="location.href='./MyProfile.html'" id="login"> Log In </button>
+            <button onclick="location.href='pages/MyProfile.html'"  id="login"> Log In </button>
           </div>
         </div>
 
@@ -45,3 +31,7 @@
     </html>
 
 </html>
+<script>
+    var nutPlan = [0,0,0,0,0,0,0];
+    localStorage.setItem('nutritionPlan',JSON.stringify(nutPlan));
+</script>

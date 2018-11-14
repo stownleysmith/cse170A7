@@ -1,27 +1,37 @@
 <!doctype html>
-<link rel="stylesheet" href="../html/style.css">
+<link rel="stylesheet" href="../html/myFood.css">
 <html lang="en">
 
-        <html>
-                <p>
-                    <a href="MyProfile.html">
-                        My Profile
-                    </a>
-                                    
-                    <a href="DailySummary.html">
-                        Daily Summary
-                    </a>
-                                    
-                    <a href="PersonalizedPlan.html">
-                        Personalized Plan
-                    </a>
-                                    
-                    <a href="MyFood.html">
-                        My Food
-                    </a>
+    <html>
+        <div id="sideMenu" class="sideMenu">
+            <a class="closeb" onclick="closeSideMenu()">Close Menu</a>
+            <a href="MyProfile.html">My Profile</a>
+            <a href="DailySummary.html">Daily Summary</a>
+            <a href="PersonalizedPlan.html">Personalized Plan</a> 
+            <a href="MyFood.html">My Food</a>
+            <a id="logoutb" href="../index.html">log out</a>
+        </div>
+        <button id="sideMenuOpen" onclick=openSideMenu()> menu </button>
+        <p id="list"></p>
+    <html>
+<script>
+    writeList();
+function openSideMenu() {
+  document.getElementById("sideMenu").style.width = "40%";
+}
             
-                    <a href="../index.html">
-                        log out
-                    </a>
-                </p>
-            
+function closeSideMenu() {
+  document.getElementById("sideMenu").style.width = "0";
+}
+
+function writeList() {
+    if(localStorage.getItem('MyFoodList')===null)
+        document.getElementById('list').textContent = "You haven't eaten anything yet!"
+    else {
+        var foods = JSON.parse(localStorage.getItem('MyFoodList'));
+        for(var i=0;i<foods.length;i++);
+            document.getElementById('list').textContent = JSON.stringify(foods);
+    }
+}
+
+</script>            
