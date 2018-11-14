@@ -76,6 +76,7 @@
 </html>
 
 <script>
+ var nutPlan = JSON.parse(localStorage.getItem('nutritionPlanDefault'));
 setUpFields();
 function openSideMenu() {
   document.getElementById("sideMenu").style.width = "40%";
@@ -125,6 +126,34 @@ function setFields() {
     localStorage.setItem('dietOption', "lW");
   if(chks[2].checked)
     localStorage.setItem('dietOption', "kF");
+  updatePlan();
+}
+
+function updatePlan() {
+  if(localStorage.getItem('uN')===null){}
+  else {
+    var mod = 1.0
+    var dO = localStorage.getItem('dietOption');
+    if(dO == "gW")
+      mod *= 1.1;
+    else if(dO = "lW")
+      mod *= 0.9;
+    if(localStorage.getItem('gen')=="female")
+    {
+      mod *= 0.9;
+      mod *= (JSON.parse(localStorage.getItem('hgt'))/162);
+    }
+    if(localStorage.getItem('gen')=="male")
+    {
+      mod *= (JSON.parse(localStorage.getItem('hgt'))/176);
+    }
+    for(var i=0;i<nutPlan.length;i++)
+    {
+      nutPlan[i] *= mod;
+      nutPlan[i] = parseInt(nutPlan[i]);
+    }
+    localStorage.setItem('nutritionPlan', JSON.stringify(nutPlan));
+  }
 }
 
 function clearChecks(ignore)

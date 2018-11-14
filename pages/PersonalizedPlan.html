@@ -87,6 +87,23 @@
       </div>
     </div>
 <script>
+  if(localStorage.getItem('nutritionPlan')===null) {
+    var nutPlan = JSON.parse(localStorage.getItem('nutritionPlanDefault'));
+  }
+  else {
+  var nutPlan = JSON.parse(localStorage.getItem('nutritionPlan'));
+  }
+  setPlan();
+
+
+function setPlan() {
+  var nutVals = document.getElementsByName("remaining");
+  for(var i=0;i<nutVals.length;i++)
+  {
+    nutVals[i].value = nutPlan[i];
+  }
+}
+
 function openSideMenu() {
   document.getElementById("sideMenu").style.width = "40%";
 }
@@ -95,6 +112,7 @@ function closeSideMenu() {
   document.getElementById("sideMenu").style.width = "0";
 }
 </script>
+
 <!-- <script>
 $(document).ready(function() {
     //hide input text
