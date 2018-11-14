@@ -1,6 +1,7 @@
 body {
+  background-color: rgb(135, 233, 179);
+  color: white;
   font-family: sans-serif;
-  color: #0a0a0a;
 }
 
 .content {
