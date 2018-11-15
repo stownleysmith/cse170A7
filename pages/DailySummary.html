@@ -26,10 +26,10 @@
     <div id="dsFoodOverlay" class="overlay">
         <h2> Add Food</h2>
         
-            <div id="rhpp"
+            <div id="fa1"
             class="result2">
             <span class="foodAdd"
-            onclick=foodChosen()>
+            onclick=foodChosen(0)>
                 Add Food
             </span>
             <a id="shopstart"
@@ -40,10 +40,10 @@
             </a>
             </div>
 
-            <div id="rlff"
+            <div id="fa2"
             class="result2">
             <span class="foodAdd"
-            onclick=foodChosen()>
+            onclick=foodChosen(1)>
                 Add Food
             </span>
             <a id="shopstart"
@@ -54,10 +54,10 @@
             </a>
             </div>
 
-            <div id="hfff"
+            <div id="fa3"
             class="result2">
             <span class="foodAdd"
-            onclick=foodChosen()>
+            onclick=foodChosen(2)>
                 Add Food
             </span>
             <a id="shopstart"
@@ -67,10 +67,10 @@
             Shop This Food >>
             </a>
             </div>
-            <div id="lsff"
+            <div id="fa4"
             class="result2">
             <span class="foodAdd"
-            onclick=foodChosen()>
+            onclick=foodChosen(3)>
                 Add Food
             </span>
             <a id="shopstart"
@@ -183,7 +183,12 @@
 
 
 <script>
-    var nutritionPlan = [2000, 167, 74, 167, 42, 42, 2300];
+    if(localStorage.getItem('nutritionPlan')===null) {
+    var nutritionPlan = JSON.parse(localStorage.getItem('nutritionPlanDefault'));
+    }
+    else {
+    var nutritionPlan = JSON.parse(localStorage.getItem('nutritionPlan'));
+    }
     var foodNames = ["apple","banana","sandwich","steak","cereal","protein bar","cheese stick","snack(Charles)"];
     var consumedFoods = [];
     /*localStorage.setItem('cF', JSON.stringify(consumedFoods));*/
@@ -191,6 +196,9 @@
     var consumedNutrition = [0,0,0,0,0,0,0];
     var lLocations = ["8%", "16%", "27%", "35%", "46%", "54%", "65%", "73%"];
     var tLocations = ["15%", "36%"];
+    var foodOptions = document.getElementsByClassName("foodAdd");
+    var targetFoodOptions = [];
+    var targetFood;
 
     if(localStorage.getItem('cN')===null) {
     localStorage.setItem('cN', JSON.stringify(consumedNutrition));}
@@ -227,14 +235,14 @@
         c1.innerHTML = cF[k].name;
         c2.innerHTML = cF[k].nutrition[0]+"cal";
         c3.innerHTML = "remove";
-        c3.style.backgroundColor = "red";
+        c3.style.backgroundColor = "rgb(211, 84, 84)";
         c3.onclick = function(){
             removeFood(cF[newRow.rowIndex],newRow.rowIndex)};
         }
 
         if(localStorage.getItem('nF')!="none")
         {
-            addFood();
+            addFood(0);
         }
     }
 
@@ -248,10 +256,16 @@
 
     function openFoodOverlay() {
         document.getElementById("dsFoodOverlay").style.width = "100%";
+        for(var i=0;i<foodOptions.length;i++)
+        {
+            targetFoodOptions.push(new foodItem());
+            foodOptions[i].textContent = targetFoodOptions[i].name+" ("+targetFoodOptions[i].calories+"cal)";
+        }
     }
             
     function closeFoodOverlay() {
         document.getElementById("dsFoodOverlay").style.width = "0";
+        targetFoodOptions = [];
     }
 
     function openSuggestionOverlay(){
@@ -269,7 +283,7 @@
        
        if(bgc == "green")
        {
-        document.getElementById(id).style.backgroundColor= "darkslategray";
+        document.getElementById(id).style.backgroundColor= "rgb(5, 126, 75)";
        }
        else
        {
@@ -294,9 +308,12 @@
         }
     }
 
-    function addFood()
+    function addFood(num)
     {
-        var newFood = new foodItem();
+        if(targetFood == null)
+            var newFood = new foodItem();
+        else
+            var newFood = targetFoodOptions[num];
         var cF = JSON.parse(localStorage.getItem('cF'));
         cF.push(newFood);
         localStorage.setItem('cF', JSON.stringify(cF));
@@ -311,11 +328,11 @@
         localStorage.setItem('cN', JSON.stringify(cN));
         for(var i=0;i<rows.length;i++)
         {
-            rows[i].textContent = cN[i]+" ";
+            rows[i].textContent = cN[i]+" g";
             col2[i].textContent = ~~(100-(100*cN[i]/nutritionPlan[i]))+"%";
             if((100-(100*cN[i]/nutritionPlan[i]))<0)
             {
-                col2[i].style.backgroundColor = "red";
+                col2[i].style.backgroundColor = "rgb(211, 84, 84)";
             }
         }
         rows[0].textContent = cN[0] + " Cal";
@@ -327,7 +344,7 @@
         c1.innerHTML = newFood.name;
         c2.innerHTML = newFood.nutrition[0]+"cal";
         c3.innerHTML = "remove";
-        c3.style.backgroundColor = "red";
+        c3.style.backgroundColor = "rgb(211, 84, 84)";
         c3.onclick = function(){
             removeFood(cF[newRow.rowIndex],newRow.rowIndex)};
     }
@@ -363,13 +380,14 @@
 
     function suggestionChosen()
     {
-        addFood();
+        addFood(0);
         closeSuggestionOverlay();
     }
 
-    function foodChosen()
+    function foodChosen(num)
     {
-        addFood();
+        targetFood = targetFoodOptions[num];
+        addFood(num);
         closeFoodOverlay();
     }
 
