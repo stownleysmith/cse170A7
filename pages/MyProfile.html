@@ -138,12 +138,12 @@ function updatePlan() {
       mod *= 1.1;
     else if(dO = "lW")
       mod *= 0.9;
-    if(localStorage.getItem('gen')=="female")
+    if(localStorage.getItem('gen').toLowerCase()=="female")
     {
       mod *= 0.9;
       mod *= (JSON.parse(localStorage.getItem('hgt'))/162);
     }
-    if(localStorage.getItem('gen')=="male")
+    if(localStorage.getItem('gen').toLowerCase()=="male")
     {
       mod *= (JSON.parse(localStorage.getItem('hgt'))/176);
     }
@@ -167,7 +167,7 @@ function clearChecks(ignore)
 function validInput(boxes)
 {
   var ret = "true"
-  if(boxes[1].value == "male" || boxes[1].value == "female") {}
+  if(boxes[1].value.toLowerCase() == "male" || boxes[1].value.toLowerCase() == "female") {}
   else {ret = "false"}
   if(parseInt(boxes[2].value) != NaN) {}
   else {ret = "false"}
