@@ -2,6 +2,7 @@ body {
     background-color: rgb(222, 236, 229);
     color: rgb(75, 73, 73);
     font-family: sans-serif;
+    font-size: 4vw;
   }
 
 p {
@@ -49,12 +50,13 @@ p {
     text-align: center;
     color: white;
     background-color: rgb(103, 170, 63);
+    font-size: 3vw;
   }
   
   .sideMenu a {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
-    font-size: 15px;
+    font-size: 3vw;
     color: #818181;
     display: block;
     transition: 0.3s;
@@ -68,5 +70,5 @@ p {
   .sideMenu .closeb {
     background-color: lightgray;
     color: white;
-    font-size: 15px;
+    font-size: 3vw;
   }

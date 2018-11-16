@@ -4,10 +4,10 @@ body {
   font-family: sans-serif;
 }
   
-  code {
+  /*code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
       monospace;
-  }
+  }*/
   
   p {
     margin: auto;
@@ -16,16 +16,19 @@ body {
   
   h1{
     text-align: center;
+    font-size: 4vw;
   }
   
   h2{
     text-align: center;
+    font-size: 3vw;
   }
   
   span {
     padding: 5px;
     background-color: rgb(5, 126, 75);
     color: white;
+    font-size: 3vw;
   }
   span a{
     text-decoration: none;
@@ -36,6 +39,7 @@ body {
     border: 1px solid black;
     margin:auto;
     border-collapse: collapse;
+    font-size: 3vw;
   }
 
   #nutrientTable .tr {
@@ -68,12 +72,13 @@ body {
       padding-top: 10px;
       color: white;
       background-color: rgb(103, 170, 63);
+      font-size: 3vw;
   }
   
   .sideMenu a {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
-    font-size: 15px;
+    font-size: 3vw;
     color: #818181;
     display: block;
     transition: 0.3s;
@@ -87,7 +92,7 @@ body {
   .sideMenu .closeb {
     background-color: lightgray;
     color: white;
-    font-size: 15px;
+    font-size: 3vw;
   }
   
   .overlay{
@@ -106,7 +111,7 @@ body {
   .overlay a {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
-    font-size: 15px;
+    font-size: 3vw;
     color: white /*rgb(103, 170, 63)*/;
     display: block;
     transition: 0.3s;
@@ -115,7 +120,7 @@ body {
   .overlay .closeb {
     background-color: lightgray;
     color: white;
-    font-size: 15px;
+    font-size: 3vw;
   }
 
   /*.optionSelect {
@@ -124,7 +129,7 @@ body {
 
   .result
   {
-    width: 15%;
+    width: 25%;
     visibility: hidden;
     margin: 1%;
     color: white;
@@ -147,7 +152,7 @@ body {
     padding: 1% 1% 1% 1%;
     margin:1%;
     text-decoration: none;
-    font-size: 15px;
+    font-size: 3vw;
     color: #818181;
   }
 
@@ -171,6 +176,7 @@ body {
     border: 1px solid black;
     margin:auto;
     border-collapse: collapse;
+    font-family: sans-serif;
   }
 
   .removeRow {
