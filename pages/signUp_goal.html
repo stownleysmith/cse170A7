@@ -1,0 +1,104 @@
+<!doctype html>
+<link rel="stylesheet" href="../html/signUp_goal.css">
+<html lang="en">
+
+<html>
+      <body>
+        <b id="welcome">My Goal Is...</b>
+        <div class="container">
+          <div class="text">
+            <div class="choice">
+              <input name="options" onclick="clearChecks('0')" type="checkbox" value="gain_w"
+              class="checks">
+              <label for="gain_w"> Gain Weight </label> <br>
+            </div>
+
+            <div class="choice">
+              <input name="options" onclick="clearChecks('1')"
+              type="checkbox" value="lose_w"
+              class="checks">
+              <label for="lose_w"> Lose Weight </label> <br>
+            </div>
+
+            <div class="choice">
+              <input name="options"
+              onclick="clearChecks('2')"
+              type="checkbox" value="keep_f"
+              class="checks">
+              <label for="keep_f"> Keep Fit </label> <br>
+            </div>
+          </div>
+
+          <button onclick="setFields();location.href='./PersonalizedPlan.html'" type="submit" class="button" id="submit">
+            Get My Personalized Plan! </button>
+
+        </div>
+
+      </body>
+</html>
+
+<script>
+  var nutPlan = JSON.parse(localStorage.getItem('nutritionPlan'));
+  setUpFields();
+
+  function setUpFields() {
+    var chks = document.getElementsByClassName("checks");
+
+    if(localStorage.getItem('dietOption')===null){}
+    else {
+      if(localStorage.getItem('dietOption')=="gW")
+        chks[0].checked = true;
+      if(localStorage.getItem('dietOption')=="lW")
+        chks[1].checked = true;
+      if(localStorage.getItem('dietOption')=="kF")
+        chks[2].checked = true;
+    }
+  }
+
+  function setFields() {
+    var chks = document.getElementsByClassName("checks");
+    if(chks[0].checked)
+      localStorage.setItem('dietOption', "gW");
+    if(chks[1].checked)
+      localStorage.setItem('dietOption', "lW");
+    if(chks[2].checked)
+      localStorage.setItem('dietOption', "kF");
+    updatePlan();
+  }
+
+  function updatePlan() {
+    if(localStorage.getItem('uN')===null){}
+    else {
+      var mod = 1.0
+      var dO = localStorage.getItem('dietOption');
+      if(dO == "gW")
+        mod *= 1.1;
+      else if(dO = "lW")
+        mod *= 0.9;
+      if(localStorage.getItem('gen')=="female")
+      {
+        mod *= 0.9;
+        mod *= (JSON.parse(localStorage.getItem('hgt'))/162);
+      }
+      if(localStorage.getItem('gen')=="male")
+      {
+        mod *= (JSON.parse(localStorage.getItem('hgt'))/176);
+      }
+      for(var i=0;i<nutPlan.length;i++)
+      {
+        nutPlan[i] *= mod;
+        nutPlan[i] = parseInt(nutPlan[i]);
+      }
+      localStorage.setItem('nutritionPlan', JSON.stringify(nutPlan));
+    }
+  }
+
+function clearChecks(ignore)
+  {
+    var chks = document.getElementsByClassName("checks");
+    for(var i=0; i<chks.length;i++)
+      chks[i].checked = false;
+      chks[ignore].checked = true;
+  }
+
+</script>

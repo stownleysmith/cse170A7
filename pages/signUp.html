@@ -1,0 +1,160 @@
+<!doctype html>
+<link rel="stylesheet" href="../html/signUp.css">
+<html lang="en">
+
+<html>
+      <body>
+        <b id="welcome">Welcome!</b>
+        <div class="container">
+          <form name="input_form" onsubmit="return validateForm()">
+            <div class="text">
+              <label for="name"> <b>Username</b> </label>
+              <input name="name" class="field">
+            </div>
+
+            <div class="text">
+              <label for="gender"> <b>Gender</b> </label>
+              <select class="field" id="gender">
+                <option value="female">Female</option>
+                <option value="male">Male</option>
+              </select>
+            </div>
+
+            <div class="text">
+              <label for="age" type="number"> <b>Age</b> </label>
+              <input name="age" class="field">
+            </div>
+
+            <div class="text">
+              <label for="height" type="number"> <b>Height</b> </label>
+              <input name="height" class="field">
+            </div>
+
+            <div class="text">
+              <label for="weight" type="number"> <b>Weight(kg)</b> </label>
+              <input name="weight" class="field">
+            </div>
+
+            <div class="text">
+              <label for="password" type="password"> <b>Password</b> </label>
+              <input name="password" class="field">
+            </div>
+
+            <button onclick="setFields();location.href='./signUp_goal.html'" type="submit" class="button" id="submit">
+              Almost Done! </button>
+          </form>
+
+          <a id="notice" href="../index.html"> Already Have an Account? Log In Here </a>
+
+        </div>
+      </body>
+</html>
+
+<script>
+
+function validateForm() {
+    var name = document.forms["input_form"]["name"].value;
+    var age = document.forms["input_form"]["age"].value;
+    var height = document.forms["input_form"]["height"].value;
+    var weight = document.forms["input_form"]["weight"].value;
+    if (name == "") {
+        alert("Username must be filled out");
+        return true;
+    }
+    else if (age == "") {
+      alert("Age must be filled out");
+      return true;
+    }
+    else if (height == "") {
+      alert("Height must be filled out");
+      return true;
+    }
+    else if (weight == "") {
+      alert("Weight must be filled out");
+      return true;
+    }
+    else if (age.match(/[a-z]/i) || height.match(/[a-z]/i) || weight.match(/[a-z]/i)) {
+      alert("Age / Height / Weight only include numbers.");
+      return true;
+    }
+    else {
+      return false;
+    }
+}
+
+var nutPlan = JSON.parse(localStorage.getItem('nutritionPlanDefault'));
+setUpFields();
+
+function setUpFields() {
+  var boxes = document.getElementsByClassName("field");
+  if(localStorage.getItem('uN')===null) {}
+  else {
+    boxes[0].value = localStorage.getItem('uN');
+    boxes[1].value = localStorage.getItem('gen');
+    boxes[2].value = localStorage.getItem('age');
+    boxes[3].value = localStorage.getItem('hgt');
+    boxes[4].value = localStorage.getItem('wgt');
+  }
+}
+
+function setFields() {
+  var boxes = document.getElementsByClassName("field");
+  if(validInput(boxes) == "true") {
+  localStorage.setItem('uN', boxes[0].value)
+  localStorage.setItem('gen', boxes[1].value)
+  localStorage.setItem('age', boxes[2].value)
+  localStorage.setItem('hgt', boxes[3].value)
+  localStorage.setItem('wgt', boxes[4].value)
+  }
+  updatePlan();
+}
+
+function updatePlan() {
+  if(localStorage.getItem('uN')===null){}
+  else {
+    var mod = 1.0
+    var dO = localStorage.getItem('dietOption');
+    if(dO == "gW")
+      mod *= 1.1;
+    else if(dO = "lW")
+      mod *= 0.9;
+    if(localStorage.getItem('gen')=="female")
+    {
+      mod *= 0.9;
+      mod *= (JSON.parse(localStorage.getItem('hgt'))/162);
+    }
+    if(localStorage.getItem('gen')=="male")
+    {
+      mod *= (JSON.parse(localStorage.getItem('hgt'))/176);
+    }
+    for(var i=0;i<nutPlan.length;i++)
+    {
+      nutPlan[i] *= mod;
+      nutPlan[i] = parseInt(nutPlan[i]);
+    }
+    localStorage.setItem('nutritionPlan', JSON.stringify(nutPlan));
+  }
+}
+
+function clearChecks(ignore)
+{
+  var chks = document.getElementsByClassName("checks");
+  for(var i=0; i<chks.length;i++)
+    chks[i].checked = false;
+    chks[ignore].checked = true;
+}
+
+function validInput(boxes)
+{
+  var ret = "true"
+  if(boxes[1].value == "male" || boxes[1].value == "female") {}
+  else {ret = "false"}
+  if(parseInt(boxes[2].value) != NaN) {}
+  else {ret = "false"}
+  if(parseInt(boxes[3].value) != NaN) {}
+  else {ret = "false"}
+  if(parseInt(boxes[4].value) != NaN) {}
+  else {ret = "false"}
+  return ret;
+}
+</script>

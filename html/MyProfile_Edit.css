@@ -1,18 +1,18 @@
 body {
-  background-color: #fff;
+  background-color: rgb(135, 233, 179);
   color: white;
   font-family: sans-serif;
 }
 
 .container {
-  top: 10%;
+  top:5%;
   position: absolute;
   width: 50%;
   height: 100%;
   padding: 5%;
   font-size: 6vw;
   font-family: sans-serif;
-  color: #5A6978;
+  color: #fff;
   line-height: 4vw;
   display:table;
   vertical-align:middle;
@@ -30,34 +30,30 @@ body {
 .choice label {
   width: 100%;
   font-size: 5vw;
-  left: 100%;
+  left: 85%;
   position: absolute;
 }
 
 .choice input {
-  width: 50px;
-  height: 50px;
+  width: 30px;
+  height: 30px;
   border-top: 0px;
   border-left: 0px;
   border-right: 0px;
-  color: #fff;
-}
-
-fieldset {
-  border: 0px;
+  color: rgb(135, 233, 179);
 }
 
 input {
   width: 75%;
-  left: 85%;
+  left: 75%;
   position: absolute;
   font-size: 5vw;
   line-height: 4vw;
   border-top: 0px;
   border-left: 0px;
   border-right: 0px;
-  background-color: #fff;
-  color: #5A6978;
+  background-color: rgb(135, 233, 179);
+  color: #fff;
   border-bottom: 2px solid #fff;
 }
 
@@ -65,7 +61,7 @@ select{
   font-size: 5vw;
   /* color: #fff; */
   background-color: #fff;
-  left: 85%;
+  left: 75%;
   position: absolute;
   height: 5vw;
   width: auto;
@@ -85,18 +81,11 @@ button {
   margin-top: 5%;
 }
 
-.button{
-  width: 180%;
-  font-size: 6vw;
-  left: 20%;
-  position: relative;
-  background-color: #7ED957;
+#submit {
+  background-color: #5A6978;
   color: #fff
 }
 
-#cancel {
-  background-color: #ccc;
-}
 .sideMenu {
   height: 100%;
   width: 0;
