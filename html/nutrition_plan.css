@@ -101,7 +101,7 @@ button {
   z-index: 1;
   top: 0;
   left: 0;
-  background-color: lightblue;
+  background-color: rgb(135, 233, 179);
   overflow-x: hidden;
   padding-top: 25px;
   transition: 0.5s;
@@ -112,14 +112,16 @@ button {
   left: 2%;
   margin: 5%;
   padding: 1%;
-  width: 5%;
+  width: 15%;
   text-align: center;
+  color: white;
+  background-color: rgb(103, 170, 63);
 }
 
 .sideMenu a {
   padding: 8px 8px 8px 32px;
   text-decoration: none;
-  font-size: 15px;
+  font-size: 5vw;
   color: #818181;
   display: block;
   transition: 0.3s;
@@ -133,5 +135,5 @@ button {
 .sideMenu .closeb {
   background-color: lightgray;
   color: white;
-  font-size: 15px;
+  font-size: 3vw;
 }
