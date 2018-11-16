@@ -22,14 +22,20 @@ body {
   font-size: 8vw;
 }
 
+#notice {
+  font-size: 4vw;
+  color: grey;
+  width: 100%;
+}
+
 .container {
-  top:10%;
+  top:15%;
   left: 12.5%;
   position: absolute;
   width: 75%;
   height: 100%;
   padding: 5%;
-  font-size: 4vw;
+  font-size: 6vw;
   line-height: 4vw;
   display:table;
   vertical-align:middle;
@@ -43,25 +49,32 @@ input {
   /* left: 20%;
   position: absolute; */
   width: 85%;
-  font-size: 3vw;
-  line-height: 4vw;
+  font-size: 6vw;
+  line-height: 6vw;
   border: 1px solid white;
   background-color: rgb(135, 233, 179);
   color:white;
+  margin-top: 2%;
 }
 
 button {
-  width: 85%;
-  font-size: 2vw;
-  border: 1px solid rgb(103, 170, 63);
-  padding: 15px 32px;
+  font-size: 5vw;
+  border-radius: 5px;
+  padding: 25px 32px;
   text-align: center;
-  margin-top: 5%;
-  vertical-align: middle;
-  background-color: rgb(103, 170, 63);
-  color:white;
+  left: 90%;
+  position: relative;
 }
 
 .button {
-  padding: 5%;
+  margin-top: 15%;
+}
+
+#login {
+  width: 80%;
+  left: 4%;
+  position: relative;
+  background-color: #7ED957;
+  color: #fff;
+  margin-bottom: 5%;
 }

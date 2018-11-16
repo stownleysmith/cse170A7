@@ -7,6 +7,12 @@
         <b id="welcome">Welcome!</b>
         <div class="container">
           <form name="input_form" onsubmit="return validateForm()">
+
+            <div class="text">
+              <label for="email"> <b>Email</b> </label>
+              <input name="email" class="field">
+            </div>
+
             <div class="text">
               <label for="name"> <b>Username</b> </label>
               <input name="name" class="field">
@@ -89,22 +95,22 @@ function setUpFields() {
   var boxes = document.getElementsByClassName("field");
   if(localStorage.getItem('uN')===null) {}
   else {
-    boxes[0].value = localStorage.getItem('uN');
-    boxes[1].value = localStorage.getItem('gen');
-    boxes[2].value = localStorage.getItem('age');
-    boxes[3].value = localStorage.getItem('hgt');
-    boxes[4].value = localStorage.getItem('wgt');
+    boxes[1].value = localStorage.getItem('uN');
+    boxes[2].value = localStorage.getItem('gen');
+    boxes[3].value = localStorage.getItem('age');
+    boxes[4].value = localStorage.getItem('hgt');
+    boxes[5].value = localStorage.getItem('wgt');
   }
 }
 
 function setFields() {
   var boxes = document.getElementsByClassName("field");
   if(validInput(boxes) == "true") {
-  localStorage.setItem('uN', boxes[0].value)
-  localStorage.setItem('gen', boxes[1].value)
-  localStorage.setItem('age', boxes[2].value)
-  localStorage.setItem('hgt', boxes[3].value)
-  localStorage.setItem('wgt', boxes[4].value)
+  localStorage.setItem('uN', boxes[1].value)
+  localStorage.setItem('gen', boxes[2].value)
+  localStorage.setItem('age', boxes[3].value)
+  localStorage.setItem('hgt', boxes[4].value)
+  localStorage.setItem('wgt', boxes[5].value)
   }
   updatePlan();
 }
@@ -147,13 +153,13 @@ function clearChecks(ignore)
 function validInput(boxes)
 {
   var ret = "true"
-  if(boxes[1].value == "male" || boxes[1].value == "female") {}
-  else {ret = "false"}
-  if(parseInt(boxes[2].value) != NaN) {}
+  if(boxes[2].value == "male" || boxes[2].value == "female") {}
   else {ret = "false"}
   if(parseInt(boxes[3].value) != NaN) {}
   else {ret = "false"}
   if(parseInt(boxes[4].value) != NaN) {}
+  else {ret = "false"}
+  if(parseInt(boxes[5].value) != NaN) {}
   else {ret = "false"}
   return ret;
 }

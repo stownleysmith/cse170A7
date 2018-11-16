@@ -80,8 +80,8 @@
         </form>
       </div>
 
-      <button class="buttons" onclick="setPlan();location.href='./PersonalizedPlan.html'" id="submit"> Submit </button>
-      <button class="buttons" id="cancel"> Cancel </button>
+      <button class="buttons" onclick="setPlan();location.href='./DailySummary.html'" id="submit"> Submit </button>
+      <button class="buttons" onclick="location.href='./DailySummary.html'" id="cancel"> Cancel </button>
     </div>
   </body>
 </html>
@@ -98,15 +98,12 @@ else {
 setUpPlan();
 
 function setUpPlan() {
-  var carbot = document.forms["calbot"]["remaining"].value;
-  var fat = document.forms["fat"]["remaining"].value;
-  var pro = document.forms["pro"]["remaining"].value;
-
   if(nutPlan===null) {}
   else {
-    carbot = nutPlan[1]
-    fat = nutPlan[2]
-    pro = nutPlan[3]
+    document.forms["calbot"]["remaining"].value = nutPlan[1]
+    document.forms["fat"]["remaining"].value = nutPlan[2]
+    document.forms["pro"]["remaining"].value = nutPlan[3]
+    console.log(nutPlan);
   }
 }
 
@@ -117,11 +114,10 @@ function setPlan() {
 
   if(nutPlan===null) {}
   else {
-    localStorage.setItem(nutPlan[1], carbot)
-    nutPlan[1].value = carbot;
-    nutPlan[2].value = fat;
-    nutPlan[3].value = pro;
-    console.log(nutPlan);
+    nutPlan[1] = carbot;
+    nutPlan[2] = fat;
+    nutPlan[3] = pro;
+    localStorage.setItem('nutritionPlan', JSON.stringify(nutPlan));
   }
 }
 
