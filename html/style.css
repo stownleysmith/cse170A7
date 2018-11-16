@@ -61,6 +61,8 @@ body {
   #sideMenuOpen {
       margin: 100px;
       padding-top: 10px;
+      color: white;
+      background-color: rgb(103, 170, 63);
   }
   
   .sideMenu a {
@@ -90,7 +92,7 @@ body {
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: rgb(255, 255, 255); 
+    background-color: rgb(135, 233, 179); 
     overflow-y: hidden; 
     padding-top: 25px; 
     transition: 0.5s; 
@@ -100,7 +102,7 @@ body {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
     font-size: 15px;
-    color: #818181;
+    color: rgb(103, 170, 63);
     display: block;
     transition: 0.3s;
   }
@@ -119,13 +121,13 @@ body {
 
   .overlay .result2 span
   {
-    background-color: gray;
+    background-color: rgb(103, 170, 63);
   }
   .overlay .result2 .shop
   {
-    background-color:gray;
+    background-color:rgb(103, 170, 63);
     display: inline;
-    color: blue;
+    color: white;
     margin-left: 3%;
   }
   .overlay .result2
@@ -136,9 +138,14 @@ body {
     font-size: 15px;
     color: #818181;
   }
+
+  .overlay .optionSelect {
+    margin-left: 1%;
+  }
+
   .overlay .result2 .foodAdd
   {
-    color: green;
+    color: white;
   }
 
   .result:hover{
@@ -153,7 +160,7 @@ body {
   }
 
   .removeRow {
-    background-color: red;
+    background-color: rgb(211, 84, 84);
   }
 .rowp {
     background-color: green;
