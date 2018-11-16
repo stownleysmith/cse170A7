@@ -1,6 +1,6 @@
 body {
-  background-color: rgb(135, 233, 179);
-  color: white;
+  background-color: rgb(222, 236, 229);
+  color: rgb(75, 73, 73);
   font-family: sans-serif;
 }
   
@@ -37,6 +37,11 @@ body {
     margin:auto;
     border-collapse: collapse;
   }
+
+  #nutrientTable .tr {
+    margin-bottom: 1%;
+  }
+
   #logoutb{
     text-decoration: underline;
   }
@@ -52,14 +57,14 @@ body {
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: lightblue; 
+    background-color: rgb(135, 233, 179); 
     overflow-x: hidden; 
     padding-top: 25px; 
     transition: 0.5s; 
   }
 
   #sideMenuOpen {
-      margin: 100px;
+      margin: 20%;
       padding-top: 10px;
       color: white;
       background-color: rgb(103, 170, 63);
@@ -102,7 +107,7 @@ body {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
     font-size: 15px;
-    color: rgb(103, 170, 63);
+    color: white /*rgb(103, 170, 63)*/;
     display: block;
     transition: 0.3s;
   }
@@ -113,10 +118,17 @@ body {
     font-size: 15px;
   }
 
+  /*.optionSelect {
+    background-color: rgb(129,129,129);
+  }*/
+
   .result
   {
+    width: 15%;
     visibility: hidden;
-    color: black;
+    margin: 1%;
+    color: white;
+    background-color: rgb(103, 170, 63);
   }
 
   .overlay .result2 span
@@ -140,6 +152,7 @@ body {
   }
 
   .overlay .optionSelect {
+    /*background-color: rgb(129,129,129);*/
     margin-left: 1%;
   }
 
@@ -149,7 +162,8 @@ body {
   }
 
   .result:hover{
-    background-color: lightgray;
+    background-color: rgb(5, 126, 75);
+    color: white;
   }
 
 

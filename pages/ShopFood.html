@@ -6,7 +6,8 @@
 <body>
     <p>
             
-        <a href="DailySummary.html">
+        <a href="DailySummary.html"
+            onclick=closeFoodMenu()>
            << Back to Daily Summary
         </a>
 
@@ -19,7 +20,7 @@
         •
     </div>
     <div id="foodPopup">
-        <p>
+        <p id= "foodInfo">
             food info
         </p>
         <div id="buttons">
@@ -28,7 +29,8 @@
             onclick="saveFood()">
             I got it!
         </a>
-        <span id="closebtn"
+        <a id="closebtn"
+            href="DailySummary.html"
             onclick=closeFoodMenu()>
             I changed my mind.
         </span>
@@ -38,7 +40,7 @@
 </body>
 
 <script>
-    /*var foodOfInterest=JSON.parse(localStorage.getItem('sF'));*/
+    var foodOfInterest=JSON.parse(localStorage.getItem('tF'));
     positionUser();
 
     var lLocations = [8, 16, 27, 35, 46, 54, 65, 73];
@@ -46,11 +48,13 @@
 function openFoodMenu()
 {
     document.getElementById("foodPopup").style.visibility = "visible";
+    document.getElementById("foodInfo").textContent = foodOfInterest.name + " is here!";
 }
 
 function closeFoodMenu()
 {
     document.getElementById("foodPopup").style.visibility = "hidden";
+    localStorage.removeItem('tF');
 }
 
 function positionUser()

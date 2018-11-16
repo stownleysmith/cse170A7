@@ -74,7 +74,7 @@ select{
 }
 
 button {
-  font-size: 5vw;
+  font-size: 6vw;
   border-radius: 5px;
   padding: 15px 32px;
   text-align: center;
@@ -86,7 +86,7 @@ button {
   margin-top: 5%;
 }
 
-.button{
+.button {
   width: 180%;
   font-size: 6vw;
   left: 20%;
@@ -98,6 +98,7 @@ button {
 #cancel {
   background-color: #ccc;
 }
+
 .sideMenu {
   height: 100%;
   width: 0;

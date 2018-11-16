@@ -8,7 +8,7 @@
         <a class="closeb" onclick="closeSideMenu()">Close Menu</a>
         <a href="MyProfile.html">My Profile</a>
         <a href="DailySummary.html">Daily Summary</a>
-        <a href="PersonalizedPlan.html">Personalized Plan</a>
+        <a href="PersonalizedPlan.html">Personalized Plan</a> 
         <a href="MyFood.html">My Food</a>
         <a id="logoutb" href="../index.html">log out</a>
     </div>
@@ -25,7 +25,7 @@
 
     <div id="dsFoodOverlay" class="overlay">
         <h2> Add Food</h2>
-
+        
             <div id="fa1"
             class="result2">
             <span class="foodAdd"
@@ -34,7 +34,7 @@
             </span>
             <a id="shopstart"
             class="shop"
-            onclick="sendFood()"
+            onclick="sendFood(0)"
             href="ShopFood.html">
             Shop This Food >>
             </a>
@@ -48,7 +48,7 @@
             </span>
             <a id="shopstart"
             class="shop"
-            onclick="sendFood()"
+            onclick="sendFood(1)"
             href="ShopFood.html">
             Shop This Food >>
             </a>
@@ -62,7 +62,7 @@
             </span>
             <a id="shopstart"
             class="shop"
-            onclick="sendFood()"
+            onclick="sendFood(2)"
             href="ShopFood.html">
             Shop This Food >>
             </a>
@@ -75,16 +75,16 @@
             </span>
             <a id="shopstart"
             class="shop"
-            onclick="sendFood()"
+            onclick="sendFood(3)"
             href="ShopFood.html">
             Shop This Food >> </a>
 
             </div>
-
+        
         <a>
             <span class="closeb" onclick="closeFoodOverlay()">Cancel</span>
         </a>
-
+        
     </div>
 
     <div id="dsSuggestionOverlay" class="overlay">
@@ -116,26 +116,26 @@
         <a>
             <a id="rhp"
             class="result"
-            onclick=suggestionChosen()>
+            onclick=suggestionChosen(0)>
                 High Protein Food
             </a>
             <a id="rlf"
             class="result"
-            onclick=suggestionChosen()>
+            onclick=suggestionChosen(1)>
                 Low Fat Food
             </a>
             <a id="hff"
             class="result"
-            onclick=suggestionChosen()>
+            onclick=suggestionChosen(2)>
                 High Fiber Food
             </a>
             <a id="lsf"
             class="result"
-            onclick=suggestionChosen()>
+            onclick=suggestionChosen(3)>
                 Low Sugar Food
             </a>
         </a>
-
+        
         </div>
 
     <h2> Remaining </h2>
@@ -178,7 +178,7 @@
     </table>
 
     <h2> Today's Summary </h2>
-    <table id="consumedTable">
+    <table id="consumedTable"> 
     </table>
 
 
@@ -197,17 +197,21 @@
     var lLocations = ["8%", "16%", "27%", "35%", "46%", "54%", "65%", "73%"];
     var tLocations = ["15%", "36%"];
     var foodOptions = document.getElementsByClassName("foodAdd");
+    var suggOptions = document.getElementsByClassName("result");
     var targetFoodOptions = [];
     var targetFood;
+    var cF;
+    /*var ctRows = document.getElementsByClassName("conTableRow");*/
 
     if(localStorage.getItem('cN')===null) {
     localStorage.setItem('cN', JSON.stringify(consumedNutrition));}
 
     if(JSON.parse(localStorage.getItem('cF'))===null) {
     localStorage.setItem('cF', JSON.stringify(consumedFoods));}
-    /*localStorage.removeItem('nF');
-    localStorage.removeItem('cN');
-    localStorage.removeItem('cF');*/
+    
+    if(localStorage.getItem('MyFoodList')===null){var MyFoodList = [];}
+    else { var MyFoodList = JSON.parse(localStorage.getItem('MyFoodList'));}
+
     if(localStorage.getItem('nF')===null) {
     localStorage.setItem('nF', "none");
     }
@@ -225,10 +229,21 @@
         nutCol[0].textContent = cN[0] + " Cal";
         nutCol[nutCol.length-1].textContent = cN[cN.length-1] + " mg";
 
-        var cF = JSON.parse(localStorage.getItem('cF'));
+        for(var y=0;y<pCol.length;y++)
+        {
+            pCol[y].textContent = ~~(100-(100*cN[y]/nutritionPlan[y]))+"%";
+            if((100-(100*cN[y]/nutritionPlan[y]))<0)
+            {
+                pCol[y].style.backgroundColor = "rgb(211, 84, 84)";
+            }
+        }
+        
+        cF = JSON.parse(localStorage.getItem('cF'));
         for(var k=0;k<cF.length;k++)
         {
         var newRow = document.getElementById("consumedTable").insertRow(0);
+        newRow.class = "conTableRow";
+        /*ctRows.push(newRow);*/
         var c1 = newRow.insertCell(0);
         var c2  = newRow.insertCell(1);
         var c3 = newRow.insertCell(2);
@@ -240,16 +255,19 @@
             removeFood(cF[newRow.rowIndex],newRow.rowIndex)};
         }
 
-        if(localStorage.getItem('nF')!="none")
-        {
+        if(localStorage.getItem('tF')===null){}
+        else {
+            targetFood = JSON.parse(localStorage.getItem('tF'));
             addFood(0);
+            localStorage.removeItem('tF');
+            targetFood = null;
         }
     }
 
     function openSideMenu() {
         document.getElementById("sideMenu").style.width = "40%";
     }
-
+            
     function closeSideMenu() {
         document.getElementById("sideMenu").style.width = "0";
     }
@@ -262,7 +280,7 @@
             foodOptions[i].textContent = targetFoodOptions[i].name+" ("+targetFoodOptions[i].calories+"cal)";
         }
     }
-
+            
     function closeFoodOverlay() {
         document.getElementById("dsFoodOverlay").style.width = "0";
         targetFoodOptions = [];
@@ -270,17 +288,23 @@
 
     function openSuggestionOverlay(){
         document.getElementById("dsSuggestionOverlay").style.width = "100%";
+        for(var i=0;i<suggOptions.length;i++)
+        {
+            targetFoodOptions.push(new foodItem());
+            suggOptions[i].textContent = targetFoodOptions[i].name+" ("+targetFoodOptions[i].calories+"cal)";
+        }
     }
-
-    function closeSuggestionOverlay()
+            
+    function closeSuggestionOverlay() 
     {
         document.getElementById("dsSuggestionOverlay").style.width = "0";
+        targetFoodOptions = [];
     }
 
     function optionSelected(id)
     {
        var bgc = document.getElementById(id).style.backgroundColor;
-
+       
        if(bgc == "green")
        {
         document.getElementById(id).style.backgroundColor= "rgb(5, 126, 75)";
@@ -313,10 +337,12 @@
         if(targetFood == null)
             var newFood = new foodItem();
         else
-            var newFood = targetFoodOptions[num];
-        var cF = JSON.parse(localStorage.getItem('cF'));
-        cF.push(newFood);
+            var newFood = targetFood;
+        cF = JSON.parse(localStorage.getItem('cF'));
+        cF.unshift(newFood);
         localStorage.setItem('cF', JSON.stringify(cF));
+        MyFoodList.push(newFood);
+        localStorage.setItem('MyFoodList', JSON.stringify(MyFoodList));
         var nutrients = newFood.nutrition;
         var rows = document.getElementsByClassName("row");
         var col2 = document.getElementsByClassName("rowp");
@@ -352,7 +378,7 @@
     function removeFood(rfood,num)
     {
         var nutrients = rfood.nutrition;
-        var cF = JSON.parse(localStorage.getItem('cF'));
+        cF = JSON.parse(localStorage.getItem('cF'));
         cF.splice(num,1);
         localStorage.setItem('cF', JSON.stringify(cF));
         var cN = JSON.parse(localStorage.getItem('cN'));
@@ -378,9 +404,10 @@
         fTotal--;
     }
 
-    function suggestionChosen()
+    function suggestionChosen(num)
     {
-        addFood(0);
+        targetFood = targetFoodOptions[num];
+        addFood(num);
         closeSuggestionOverlay();
     }
 
@@ -391,10 +418,10 @@
         closeFoodOverlay();
     }
 
-    function sendFood()
+    function sendFood(num)
     {
-        /*var food = new foodItem();
-        localStorage.setItem('sF', JSON.stringify(food));*/
+        targetFood = targetFoodOptions[num];
+        localStorage.setItem('tF', JSON.stringify(targetFood));
         localStorage.setItem('nF', "none");
     }
 

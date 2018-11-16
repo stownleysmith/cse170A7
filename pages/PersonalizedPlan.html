@@ -9,15 +9,14 @@
           <a class="closeb" onclick="closeSideMenu()">Close Menu</a>
           <a href="MyProfile.html">My Profile</a>
           <a href="DailySummary.html">Daily Summary</a>
-          <a href="PersonalizedPlan.html">Personalized Plan</a> 
+          <a href="PersonalizedPlan.html">Personalized Plan</a>
           <a href="MyFood.html">My Food</a>
           <a id="logoutb" href="../index.html">log out</a>
       </div>
       <button id="sideMenuOpen" onclick=openSideMenu()> menu </button>
 
+    <h1 id="plan"> Nutrition Plan </h1>
     <div class="content">
-
-      <h1> Nutrition Plan </h1>
 
       <div class="nutrition_list" id="calories">
         <form oninput="">
@@ -28,7 +27,7 @@
       </div>
 
       <div class="nutrition_list" id="carbohydrates">
-        <form oninput="remaining.value = parseInt(100 - parseInt(carbohydrate.value) * 1.6)">
+        <form name="calbot" oninput="remaining.value = parseInt(100 - parseInt(carbohydrate.value) * 1.6)">
           Carbohydrate
           <input id="carbohydrate">
           <label class="per"> % </label>
@@ -38,7 +37,7 @@
       </div>
 
       <div class="nutrition_list" id="fat">
-        <form oninput="remaining.value = parseInt(200 - parseInt(fat.value) * 1.6)">
+        <form name="fat" oninput="remaining.value = parseInt(200 - parseInt(fat.value) * 1.6)">
           Fat
           <input id="fat">
           <label class="per"> % </label>
@@ -48,7 +47,7 @@
       </div>
 
       <div class="nutrition_list" id="protein">
-        <form oninput="remaining.value = parseInt(40 - parseInt(protein.value) / 40)">
+        <form name="pro" oninput="remaining.value = parseInt(40 - parseInt(protein.value) / 40)">
           Protein
           <input id="protein">
           <label class="per"> % </label>
@@ -81,59 +80,56 @@
         </form>
       </div>
 
-      <div class="buttons">
-        <button onclick="location.href='./DailySummary.html'" id="submit"> Submit </button>
-        <button id="cancel"> Cancel </button>
-      </div>
+      <button class="buttons" onclick="setPlan();location.href='./PersonalizedPlan.html'" id="submit"> Submit </button>
+      <button class="buttons" id="cancel"> Cancel </button>
     </div>
-<script>
-  if(localStorage.getItem('nutritionPlan')===null) {
-    var nutPlan = JSON.parse(localStorage.getItem('nutritionPlanDefault'));
-  }
-  else {
-  var nutPlan = JSON.parse(localStorage.getItem('nutritionPlan'));
-  }
-  setPlan();
+  </body>
+</html>
 
+<script>
+if(localStorage.getItem('nutritionPlan')===null) {
+  var nutPlan = JSON.parse(localStorage.getItem('nutritionPlanDefault'));
+}
+else {
+  var nutPlan = JSON.parse(localStorage.getItem('nutritionPlan'));
+  console.log(nutPlan);
+}
+
+setUpPlan();
+
+function setUpPlan() {
+  var carbot = document.forms["calbot"]["remaining"].value;
+  var fat = document.forms["fat"]["remaining"].value;
+  var pro = document.forms["pro"]["remaining"].value;
+
+  if(nutPlan===null) {}
+  else {
+    carbot = nutPlan[1]
+    fat = nutPlan[2]
+    pro = nutPlan[3]
+  }
+}
 
 function setPlan() {
-  var nutVals = document.getElementsByName("remaining");
-  for(var i=0;i<nutVals.length;i++)
-  {
-    nutVals[i].value = nutPlan[i];
+  var carbot = document.forms["calbot"]["remaining"].value;
+  var fat = document.forms["fat"]["remaining"].value;
+  var pro = document.forms["pro"]["remaining"].value;
+
+  if(nutPlan===null) {}
+  else {
+    localStorage.setItem(nutPlan[1], carbot)
+    nutPlan[1].value = carbot;
+    nutPlan[2].value = fat;
+    nutPlan[3].value = pro;
+    console.log(nutPlan);
   }
 }
 
 function openSideMenu() {
   document.getElementById("sideMenu").style.width = "40%";
 }
-            
+
 function closeSideMenu() {
   document.getElementById("sideMenu").style.width = "0";
 }
 </script>
-
-<!-- <script>
-$(document).ready(function() {
-    //hide input text
-    $("input").click(function(){
-        if ($('input').attr('value') != ''){
-            $('.input').attr('value') = ''; alert('1');}
-        // if  ($('.input').attr('value') == 'Email address'){
-        //     $('.input').attr('value') = ''}
-    });
-});
-</script> -->
-  </body>
-    <!--
-        Calories
-        Carbs %
-        Fat %
-        Protein %
-        Fiber
-        Sugar
-        Sodium
-
-        submit button that updates personalized plan based on changes to above boxes
-    -->
-</html>

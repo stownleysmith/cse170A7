@@ -1,13 +1,14 @@
 body {
-    background-color: rgb(135, 233, 179);
-    color: white;
+    background-color: rgb(222, 236, 229);
+    color: rgb(75, 73, 73);
     font-family: sans-serif;
   }
 
 p {
     position: absolute;
+    left: 20%;
     margin: 10%;
-    text-align: center;
+    text-align: left;
 }
 
 .buttons {
@@ -33,7 +34,7 @@ p {
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: lightblue; 
+    background-color: rgb(135, 233, 179); 
     overflow-x: hidden; 
     padding-top: 25px; 
     transition: 0.5s; 
