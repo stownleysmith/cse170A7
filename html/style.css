@@ -137,7 +137,8 @@ body {
   }
   
   .overlay a {
-    padding: 8px 8px 8px 32px;
+    padding: 8px 8px 8px 10px;
+    margin-bottom: 4%;
     text-decoration: none;
     font-size: 3vw;
     color: white /*rgb(103, 170, 63)*/;
@@ -148,30 +149,44 @@ body {
   .overlay .closeb {
     background-color: lightgray;
     color: white;
+    border-radius: 10px;
     font-size: 3vw;
+    margin-left: 10%;
   }
-
+  .overlay .submit {
+    background-color:rgb(103, 170, 63);
+    border-radius: 10px;
+    padding: 10px 20px;
+    margin-left: 4.75%;
+  }
   /*.optionSelect {
     background-color: rgb(129,129,129);
   }*/
 
   .result
   {
-    width: 25%;
+    text-align: center;
+    width: 30%;
     visibility: hidden;
-    margin: 1%;
+    margin: 4%;
+    margin-left: 6%;
     color: white;
+    border-radius:10px;
     background-color: rgb(103, 170, 63);
   }
 
   .overlay .result2 button
   {
     background-color: rgb(103, 170, 63);
+    margin-left:10%;
     font-size: 3vw;
+    width: 40%;
   }
   .overlay .result2 .shop
   {
     background-color:rgb(103, 170, 63);
+    border-radius: 10px;
+    padding: 15px 32px;
     display: inline;
     color: white;
     margin-left: 3%;
@@ -187,7 +202,9 @@ body {
 
   .overlay .optionSelect {
     /*background-color: rgb(129,129,129);*/
-    margin-left: 1%;
+    padding: 10px 20px;
+    border-radius:10px;
+    margin-left: 4.75%;
   }
 
   .overlay .result2 .foodAdd

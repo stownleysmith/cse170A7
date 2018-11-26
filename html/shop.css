@@ -17,6 +17,7 @@ body{
     width: 30%;
     position: fixed; left:40%; top:20%;
     background-color: antiquewhite;
+    border-radius: 10px;
     color: blue;
     visibility: hidden;
 }
@@ -27,12 +28,16 @@ body{
 
 #foodPopup div a{
     margin:1%;
+    margin-left: 4%;
     background-color: green;
+    border-radius: 5px;
     text-decoration: none;
     color: white;
+    padding: 10px 20px;
 }
 #closebtn{
     margin: 1%;
+    border-radius:5px;
     background-color: red;
     color:white;
 }
