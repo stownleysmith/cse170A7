@@ -36,14 +36,28 @@ body {
   }
   
   table,th{
-    border: 1px solid black;
+    
+    border: 1px solid rgb(75, 73, 73);
     margin:auto;
-    border-collapse: collapse;
+    border-collapse: separate;
     font-size: 3vw;
+    
   }
 
-  #nutrientTable .tr {
+  #nutrientTable {
+    border:none;
+    border-collapse: separate;
+    border-spacing: 0 1em;
+    width:70%;
+  }
+
+  #nutrientTable .tr .th {
+    width: 5%;
+  }
+
+  #nutrientTable tbody .tr {
     margin-bottom: 1%;
+    border-radius: 20px;
   }
 
   #logoutb{
@@ -51,6 +65,10 @@ body {
   }
   
   .overlayOpen{
+    padding: 15px 32px;
+    background-color: rgb(5, 126, 75);
+    color: white;
+    font-size: 3vw;
     margin:10px;
   }
   
@@ -68,13 +86,23 @@ body {
   }
 
   #sideMenuOpen {
-      margin: 20%;
-      padding-top: 10px;
-      color: white;
-      background-color: rgb(103, 170, 63);
-      font-size: 3vw;
+    position: fixed;
+    left: 2%;
+    margin: 5%;
+    padding-top: 1%;
+    color: white;
+    background-color: rgb(103, 170, 63);
+    font-size: 4vw;
   }
   
+  button {
+    font-size: 6vw;
+    border-radius: 10px;
+    padding: 15px 32px;
+    text-align: center;
+    position: relative;
+  }
+
   .sideMenu a {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
@@ -136,9 +164,10 @@ body {
     background-color: rgb(103, 170, 63);
   }
 
-  .overlay .result2 span
+  .overlay .result2 button
   {
     background-color: rgb(103, 170, 63);
+    font-size: 3vw;
   }
   .overlay .result2 .shop
   {
@@ -171,12 +200,26 @@ body {
     color: white;
   }
 
+  #consumedTable {
+    width:70%;
+    text-align: center;
+    border: none;
+    border-collapse: separate;
+    border-spacing: 0 .5em;
+  }
+
+  #consumedTable th{
+    border-radius: 10px;
+  }
 
   #consumedTable td{
-    border: 1px solid black;
     margin:auto;
-    border-collapse: collapse;
     font-family: sans-serif;
+    border-radius: 10px;
+  }
+
+  .conTableRow {
+    border-radius: 10px;
   }
 
   .removeRow {
@@ -184,4 +227,9 @@ body {
   }
 .rowp {
     background-color: green;
+    border-radius: 0 10px 10px 0;
+}
+
+.hrow {
+  border-radius: 10px 0 0 10px;
 }

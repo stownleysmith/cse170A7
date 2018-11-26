@@ -12,15 +12,15 @@
         <a href="MyFood.html">My Food</a>
         <a id="logoutb" href="../index.html">log out</a>
     </div>
-    <span id=sideMenuOpen
-        onclick=openSideMenu()>menu</span>
+    <button id=sideMenuOpen
+        onclick=openSideMenu()>menu</button>
 
     <h1>Daily Summary</h1>
     <p>
-        <span class="overlayOpen"
-        onclick=openFoodOverlay()> Add Food </span>
-        <span class="overlayOpen"
-        onclick="openSuggestionOverlay()"> Suggestion </span>
+        <button class="overlayOpen"
+        onclick=openFoodOverlay()> Add Food </button>
+        <button class="overlayOpen"
+        onclick="openSuggestionOverlay()"> Suggestion </button>
     </p>
 
     <div id="dsFoodOverlay" class="overlay">
@@ -28,10 +28,10 @@
         
             <div id="fa1"
             class="result2">
-            <span class="foodAdd"
+            <button class="foodAdd"
             onclick=foodChosen(0)>
                 Add Food
-            </span>
+            </button>
             <a id="shopstart"
             class="shop"
             onclick="sendFood(0)"
@@ -42,10 +42,10 @@
 
             <div id="fa2"
             class="result2">
-            <span class="foodAdd"
+            <button class="foodAdd"
             onclick=foodChosen(1)>
                 Add Food
-            </span>
+            </button>
             <a id="shopstart"
             class="shop"
             onclick="sendFood(1)"
@@ -56,10 +56,10 @@
 
             <div id="fa3"
             class="result2">
-            <span class="foodAdd"
+            <button class="foodAdd"
             onclick=foodChosen(2)>
                 Add Food
-            </span>
+            </button>
             <a id="shopstart"
             class="shop"
             onclick="sendFood(2)"
@@ -69,10 +69,10 @@
             </div>
             <div id="fa4"
             class="result2">
-            <span class="foodAdd"
+            <button class="foodAdd"
             onclick=foodChosen(3)>
                 Add Food
-            </span>
+            </button>
             <a id="shopstart"
             class="shop"
             onclick="sendFood(3)"
@@ -141,37 +141,37 @@
     <h2> Remaining </h2>
     <table id="nutrientTable">
         <tr>
-            <th>Calories</th>
+            <th class="hrow">Calories</th>
             <th class="row">Cal</th>
             <th class="rowp">100%</th>
         </tr>
         <tr>
-            <th>Carbohydrates</th>
+            <th class="hrow">Carbohydrates</th>
             <th class="row">g</th>
             <th class="rowp">100%</th>
         </tr>
         <tr>
-            <th>Fat</th>
+            <th class="hrow">Fat</th>
             <th class="row">g</th>
             <th class="rowp">100%</th>
         </tr>
         <tr>
-            <th>Protein</th>
+            <th class="hrow">Protein</th>
             <th class="row">g</th>
             <th class="rowp">100%</th>
         </tr>
         <tr>
-            <th>Fiber</th>
+            <th class="hrow">Fiber</th>
             <th class="row">g</th>
             <th class="rowp">100%</th>
         </tr>
         <tr>
-            <th>Sugar</th>
+            <th class="hrow">Sugar</th>
             <th class="row">g</th>
             <th class="rowp">100%</th>
         </tr>
         <tr>
-            <th>Sodium</th>
+            <th class="hrow">Sodium</th>
             <th class="row">mg</th>
             <th class="rowp">100%</th>
         </tr>
