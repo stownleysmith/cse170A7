@@ -123,7 +123,7 @@ button {
   padding: 8px 8px 8px 32px;
   margin: 3vh 3vh 6vh 3vh;
   text-decoration: none;
-  font-size: 15vw;
+  font-size: 5vw;
   color: white;
   display: block;
   transition: 0.3s;
@@ -135,6 +135,6 @@ button {
 }
 
 .sideMenu .closeb {
-  width: 50%;
+  width: 100%;
   margin-left: 80%;
 }
