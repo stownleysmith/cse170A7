@@ -135,7 +135,6 @@ button {
 }
 
 .sideMenu .closeb {
-  background-color: rgb(103, 170, 63);
-  width: 25%;
-  margin-left: 70%;
+  width: 50%;
+  margin-left: 80%;
 }
