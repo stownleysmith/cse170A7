@@ -12,8 +12,15 @@
             <a id="logoutb" href="../index.html">log out</a>
         </div>
         <button id="sideMenuOpen" onclick=openSideMenu()> menu </button>
+        <table id="mfTable"> 
+        </table>
         <p id="list"></p>
+        <div id="rdsPopup">
+            <a href="DailySummary.html">Return to Daily Summary</a>
+        </div>
     <html>
+
+
 <script>
     writeList();
 function openSideMenu() {
@@ -28,12 +35,37 @@ function writeList() {
     if(localStorage.getItem('MyFoodList')===null)
         document.getElementById('list').textContent = "You haven't eaten anything yet!"
     else {
+        document.getElementById('list').textContent = "";
         var foods = JSON.parse(localStorage.getItem('MyFoodList'));
         for(var i=0;i<foods.length;i++) 
         {
-            document.getElementById("list").innerHTML += (foods[i].name + " (" + foods[i].calories + " cal)" + "<br/>");
+            addTableRow(i);
         }
     }
+}
+
+function addTableRow(num) {
+    var foods = JSON.parse(localStorage.getItem('MyFoodList'));
+    var newRow = document.getElementById("mfTable").insertRow(0);
+    newRow.class = "mfTableRow";
+    var c1 = newRow.insertCell(0);
+    var c2  = newRow.insertCell(1);
+    var c3 = newRow.insertCell(2);
+    c1.innerHTML = foods[num].name;
+    c1.style.borderRadius = "10px 0 0 10px";
+    c2.innerHTML = foods[num].nutrition[0]+"cal";
+    c3.innerHTML = "Eat Again";
+    c3.style.backgroundColor = "green";
+    c3.style.color = "white";
+    c3.style.borderRadius = "0 10px 10px 0";
+    c3.onclick = function(){
+        reAddFood((foods.length-1)-newRow.rowIndex)};
+}
+
+function reAddFood(num) {
+    var foods = JSON.parse(localStorage.getItem('MyFoodList'));
+    localStorage.setItem('tF', JSON.stringify(foods[num]));
+    document.getElementById("rdsPopup").style.visibility="visible";
 }
 
 </script>            

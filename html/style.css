@@ -106,7 +106,7 @@ body {
   .sideMenu a {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
-    font-size: 3vw;
+    font-size: 4vw;
     color: #818181;
     display: block;
     transition: 0.3s;
@@ -249,4 +249,10 @@ body {
 
 .hrow {
   border-radius: 10px 0 0 10px;
+}
+
+#spacer {
+  background-color: rgb(222, 236, 229);
+  width: 100%;
+  height: 15%;
 }

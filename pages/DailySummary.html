@@ -12,8 +12,10 @@
         <a href="MyFood.html">My Food</a>
         <a id="logoutb" href="../index.html">log out</a>
     </div>
+    
     <button id=sideMenuOpen
         onclick=openSideMenu()>menu</button>
+        <span id=spacer></span>
 
     <h1>Daily Summary</h1>
     <p>
@@ -239,20 +241,10 @@
         }
         
         cF = JSON.parse(localStorage.getItem('cF'));
-        for(var k=0;k<cF.length;k++)
+        /* for(var k=0;k<cF.length;k++)*/
+        for(var k=cF.length-1;k>=0;k--)
         {
-        var newRow = document.getElementById("consumedTable").insertRow(0);
-        newRow.class = "conTableRow";
-        /*ctRows.push(newRow);*/
-        var c1 = newRow.insertCell(0);
-        var c2  = newRow.insertCell(1);
-        var c3 = newRow.insertCell(2);
-        c1.innerHTML = cF[k].name;
-        c2.innerHTML = cF[k].nutrition[0]+"cal";
-        c3.innerHTML = "remove";
-        c3.style.backgroundColor = "rgb(211, 84, 84)";
-        c3.onclick = function(){
-            removeFood(cF[newRow.rowIndex],newRow.rowIndex)};
+            addCTableRow(k);
         }
 
         if(localStorage.getItem('tF')===null){}
@@ -262,6 +254,22 @@
             localStorage.removeItem('tF');
             targetFood = null;
         }
+    }
+
+    function addCTableRow(num) {
+        cF = JSON.parse(localStorage.getItem('cF'));
+        var newRow = document.getElementById("consumedTable").insertRow(0);
+        newRow.class = "conTableRow";
+        /*ctRows.push(newRow);*/
+        var c1 = newRow.insertCell(0);
+        var c2  = newRow.insertCell(1);
+        var c3 = newRow.insertCell(2);
+        c1.innerHTML = cF[num].name;
+        c2.innerHTML = cF[num].nutrition[0]+"cal";
+        c3.innerHTML = "remove";
+        c3.style.backgroundColor = "rgb(211, 84, 84)";
+        c3.onclick = function(){
+            removeFood(cF[newRow.rowIndex],newRow.rowIndex)};
     }
 
     function openSideMenu() {
@@ -342,6 +350,7 @@
         cF.unshift(newFood);
         localStorage.setItem('cF', JSON.stringify(cF));
         MyFoodList.push(newFood);
+        /*MyFoodList.unshift(newFood);*/
         localStorage.setItem('MyFoodList', JSON.stringify(MyFoodList));
         var nutrients = newFood.nutrition;
         var rows = document.getElementsByClassName("row");
