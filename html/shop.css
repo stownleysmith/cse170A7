@@ -12,6 +12,14 @@ body{
     position: fixed; left:90%; top:90%;
 }
 
+#awayBs a {
+    text-decoration: none;
+    background-color: darkgreen;
+    color: white;
+    margin-left: 1%;
+    padding:1%;
+}
+
 #foodPopup
 {
     width: 50%;
