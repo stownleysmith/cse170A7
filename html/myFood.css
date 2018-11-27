@@ -27,50 +27,50 @@ p {
     left: 70%;
     position: relative;
   }
-  
+
   .sideMenu {
-    height: 100%; 
-    width: 0; 
+    height: 100%;
+    width: 0;
     position: fixed;
-    z-index: 1;
+    z-index: 2;
     top: 0;
     left: 0;
-    background-color: rgb(135, 233, 179); 
-    overflow-x: hidden; 
-    padding-top: 25px; 
-    transition: 0.5s; 
+    background-color: rgb(135, 233, 179);
+    overflow-x: hidden;
+    padding-top: 25px;
+    transition: 0.5s;
   }
-  
+
   #sideMenuOpen {
     position: fixed;
     left: 2%;
     margin: 5%;
-    padding: 2%;
+    padding: 1%;
     width: 15%;
     text-align: center;
     color: white;
-    background-color: rgb(103, 170, 63);
-    font-size: 4vw;
+    background-color: rgb(135, 233, 179);
   }
-  
+
+
   .sideMenu a {
     padding: 8px 8px 8px 32px;
+    margin: 3vh 3vh 6vh 3vh;
     text-decoration: none;
-    font-size: 4vw;
-    color: #818181;
+    font-size: 4.85vw;
+    color: white;
     display: block;
     transition: 0.3s;
   }
-  
+
   .sideMenu a:hover {
     color: #406bbb;
     background-color: rgb(210, 223, 228);
   }
-  
+
   .sideMenu .closeb {
-    background-color: lightgray;
-    color: white;
-    font-size: 3vw;
+    width: 6vh;
+    margin-left: 70%;
   }
 
   #mfTable {

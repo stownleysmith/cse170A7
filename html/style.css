@@ -3,27 +3,27 @@ body {
   color: rgb(75, 73, 73);
   font-family: sans-serif;
 }
-  
+
   /*code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
       monospace;
   }*/
-  
+
   p {
     margin: auto;
     text-align: center;
   }
-  
+
   h1{
     text-align: center;
     font-size: 4vw;
   }
-  
+
   h2{
     text-align: center;
     font-size: 3vw;
   }
-  
+
   span {
     padding: 5px;
     background-color: rgb(5, 126, 75);
@@ -34,14 +34,14 @@ body {
     text-decoration: none;
     color: white;
   }
-  
+
   table,th{
-    
+
     border: 1px solid rgb(75, 73, 73);
     margin:auto;
     border-collapse: separate;
     font-size: 3vw;
-    
+
   }
 
   #nutrientTable {
@@ -63,7 +63,7 @@ body {
   #logoutb{
     text-decoration: underline;
   }
-  
+
   .overlayOpen{
     padding: 15px 32px;
     background-color: rgb(5, 126, 75);
@@ -71,30 +71,53 @@ body {
     font-size: 3vw;
     margin:10px;
   }
-  
+
   .sideMenu {
-    height: 100%; 
-    width: 0; 
+    height: 100%;
+    width: 0;
     position: fixed;
-    z-index: 1;
+    z-index: 2;
     top: 0;
     left: 0;
-    background-color: rgb(135, 233, 179); 
-    overflow-x: hidden; 
-    padding-top: 25px; 
-    transition: 0.5s; 
+    background-color: rgb(135, 233, 179);
+    overflow-x: hidden;
+    padding-top: 25px;
+    transition: 0.5s;
   }
 
   #sideMenuOpen {
     position: fixed;
     left: 2%;
     margin: 5%;
-    padding-top: 1%;
+    padding: 1%;
+    width: 15%;
+    text-align: center;
     color: white;
-    background-color: rgb(103, 170, 63);
-    font-size: 4vw;
+    background-color: rgb(135, 233, 179);
   }
-  
+
+
+  .sideMenu a {
+    padding: 8px 8px 8px 32px;
+    margin: 3vh 3vh 6vh 3vh;
+    text-decoration: none;
+    font-size: 4.85vw;
+    color: white;
+    display: block;
+    transition: 0.3s;
+  }
+
+  .sideMenu a:hover {
+    color: #406bbb;
+    background-color: rgb(210, 223, 228);
+  }
+
+  .sideMenu .closeb {
+    width: 6vh;
+    margin-left: 70%;
+  }
+
+
   button {
     font-size: 6vw;
     border-radius: 10px;
@@ -103,39 +126,21 @@ body {
     position: relative;
   }
 
-  .sideMenu a {
-    padding: 8px 8px 8px 32px;
-    text-decoration: none;
-    font-size: 4vw;
-    color: #818181;
-    display: block;
-    transition: 0.3s;
-  }
-  
-  .sideMenu a:hover {
-    color: #406bbb;
-    background-color: rgb(210, 223, 228);
-  }
-  
-  .sideMenu .closeb {
-    background-color: lightgray;
-    color: white;
-    font-size: 3vw;
-  }
-  
+
+
   .overlay{
-    height: 100%; 
-    width: 0; 
+    height: 100%;
+    width: 0;
     position: fixed;
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: rgb(135, 233, 179); 
-    overflow-y: hidden; 
-    padding-top: 25px; 
-    transition: 0.5s; 
+    background-color: rgb(135, 233, 179);
+    overflow-y: hidden;
+    padding-top: 25px;
+    transition: 0.5s;
   }
-  
+
   .overlay a {
     padding: 8px 8px 8px 10px;
     margin-bottom: 4%;
@@ -145,7 +150,7 @@ body {
     display: block;
     transition: 0.3s;
   }
-  
+
   .overlay .closeb {
     background-color: lightgray;
     color: white;

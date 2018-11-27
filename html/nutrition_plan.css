@@ -98,7 +98,7 @@ button {
   height: 100%;
   width: 0;
   position: fixed;
-  z-index: 1;
+  z-index: 2;
   top: 0;
   left: 0;
   background-color: rgb(135, 233, 179);
@@ -115,7 +115,7 @@ button {
   width: 15%;
   text-align: center;
   color: white;
-  background-color: rgb(103, 170, 63);
+  background-color: rgb(135, 233, 179);
 }
 
 
@@ -123,7 +123,7 @@ button {
   padding: 8px 8px 8px 32px;
   margin: 3vh 3vh 6vh 3vh;
   text-decoration: none;
-  font-size: 5vw;
+  font-size: 6vw;
   color: white;
   display: block;
   transition: 0.3s;
@@ -135,6 +135,6 @@ button {
 }
 
 .sideMenu .closeb {
-  width: 300%;
-  margin-left: 80%;
+  width: 6vh;
+  margin-left: 70%;
 }

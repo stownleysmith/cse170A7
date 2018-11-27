@@ -4,15 +4,15 @@
 
     <html>
         <div id="sideMenu" class="sideMenu">
-            <a class="closeb" onclick="closeSideMenu()">Close Menu</a>
+            <a class="closeb" onclick="closeSideMenu()"><img src='../images/baseline_menu_black_48dp.png'></a>
             <a href="MyProfile.html">My Profile</a>
             <a href="DailySummary.html">Daily Summary</a>
-            <a href="PersonalizedPlan.html">Personalized Plan</a> 
+            <a href="PersonalizedPlan.html">Personalized Plan</a>
             <a href="MyFood.html">My Food</a>
             <a id="logoutb" href="../index.html">log out</a>
         </div>
-        <button id="sideMenuOpen" onclick=openSideMenu()> menu </button>
-        <table id="mfTable"> 
+        <button id="sideMenuOpen" onclick=openSideMenu()> <img src='../images/baseline_menu_black_48dp.png'> </button>
+        <table id="mfTable">
         </table>
         <p id="list"></p>
         <div id="rdsPopup">
@@ -24,9 +24,9 @@
 <script>
     writeList();
 function openSideMenu() {
-  document.getElementById("sideMenu").style.width = "40%";
+  document.getElementById("sideMenu").style.width = "50%";
 }
-            
+
 function closeSideMenu() {
   document.getElementById("sideMenu").style.width = "0";
 }
@@ -37,7 +37,7 @@ function writeList() {
     else {
         document.getElementById('list').textContent = "";
         var foods = JSON.parse(localStorage.getItem('MyFoodList'));
-        for(var i=0;i<foods.length;i++) 
+        for(var i=0;i<foods.length;i++)
         {
             addTableRow(i);
         }
@@ -68,4 +68,4 @@ function reAddFood(num) {
     document.getElementById("rdsPopup").style.visibility="visible";
 }
 
-</script>            
+</script>

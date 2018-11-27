@@ -113,20 +113,23 @@ button {
 }
 
 #sideMenuOpen {
-    position: fixed;
-    left: 2%;
-    margin: 5%;
-    padding-top: 1%;
-    z-index: 1;
-    color: white;
-    background-color: rgb(103, 170, 63);
+  position: fixed;
+  left: 2%;
+  margin: 5%;
+  padding: 1%;
+  width: 15%;
+  text-align: center;
+  color: white;
+  background-color: rgb(135, 233, 179);
 }
+
 
 .sideMenu a {
   padding: 8px 8px 8px 32px;
+  margin: 3vh 3vh 6vh 3vh;
   text-decoration: none;
-  font-size: 3vw;
-  color: #818181;
+  font-size: 6vw;
+  color: white;
   display: block;
   transition: 0.3s;
 }
@@ -137,7 +140,6 @@ button {
 }
 
 .sideMenu .closeb {
-  background-color: lightgray;
-  color: white;
-  font-size: 3vw;
+  width: 6vh;
+  margin-left: 70%;
 }

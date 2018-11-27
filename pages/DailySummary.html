@@ -5,16 +5,16 @@
 <html>
 <body>
     <div id="sideMenu" class="sideMenu">
-        <a class="closeb" onclick="closeSideMenu()">Close Menu</a>
+        <a class="closeb" onclick="closeSideMenu()"><img src='../images/baseline_menu_black_48dp.png'></a>
         <a href="MyProfile.html">My Profile</a>
         <a href="DailySummary.html">Daily Summary</a>
-        <a href="PersonalizedPlan.html">Personalized Plan</a> 
+        <a href="PersonalizedPlan.html">Personalized Plan</a>
         <a href="MyFood.html">My Food</a>
         <a id="logoutb" href="../index.html">log out</a>
     </div>
-    
+
     <button id=sideMenuOpen
-        onclick=openSideMenu()>menu</button>
+        onclick=openSideMenu()><img src='../images/baseline_menu_black_48dp.png'></button>
         <span id=spacer></span>
 
     <h1>Daily Summary</h1>
@@ -27,7 +27,7 @@
 
     <div id="dsFoodOverlay" class="overlay">
         <h2> Add Food</h2>
-        
+
             <div id="fa1"
             class="result2">
             <button class="foodAdd"
@@ -82,11 +82,11 @@
             Shop This Food >> </a>
 
             </div>
-        
+
         <a>
             <span class="closeb" onclick="closeFoodOverlay()">Cancel</span>
         </a>
-        
+
     </div>
 
     <div id="dsSuggestionOverlay" class="overlay">
@@ -137,7 +137,7 @@
                 Low Sugar Food
             </a>
         </a>
-        
+
         </div>
 
     <h2> Remaining </h2>
@@ -180,7 +180,7 @@
     </table>
 
     <h2> Today's Summary </h2>
-    <table id="consumedTable"> 
+    <table id="consumedTable">
     </table>
 
 
@@ -210,7 +210,7 @@
 
     if(JSON.parse(localStorage.getItem('cF'))===null) {
     localStorage.setItem('cF', JSON.stringify(consumedFoods));}
-    
+
     if(localStorage.getItem('MyFoodList')===null){var MyFoodList = [];}
     else { var MyFoodList = JSON.parse(localStorage.getItem('MyFoodList'));}
 
@@ -239,7 +239,7 @@
                 pCol[y].style.backgroundColor = "rgb(211, 84, 84)";
             }
         }
-        
+
         cF = JSON.parse(localStorage.getItem('cF'));
         /* for(var k=0;k<cF.length;k++)*/
         for(var k=cF.length-1;k>=0;k--)
@@ -273,9 +273,9 @@
     }
 
     function openSideMenu() {
-        document.getElementById("sideMenu").style.width = "40%";
+        document.getElementById("sideMenu").style.width = "50%";
     }
-            
+
     function closeSideMenu() {
         document.getElementById("sideMenu").style.width = "0";
     }
@@ -288,7 +288,7 @@
             foodOptions[i].textContent = targetFoodOptions[i].name+" ("+targetFoodOptions[i].calories+"cal)";
         }
     }
-            
+
     function closeFoodOverlay() {
         document.getElementById("dsFoodOverlay").style.width = "0";
         targetFoodOptions = [];
@@ -302,8 +302,8 @@
             suggOptions[i].textContent = targetFoodOptions[i].name+" ("+targetFoodOptions[i].calories+"cal)";
         }
     }
-            
-    function closeSuggestionOverlay() 
+
+    function closeSuggestionOverlay()
     {
         document.getElementById("dsSuggestionOverlay").style.width = "0";
         targetFoodOptions = [];
@@ -312,7 +312,7 @@
     function optionSelected(id)
     {
        var bgc = document.getElementById(id).style.backgroundColor;
-       
+
        if(bgc == "green")
        {
         document.getElementById(id).style.backgroundColor= "rgb(5, 126, 75)";
