@@ -155,16 +155,15 @@ body {
 
   .overlay .closeb {
     background-color: lightgray;
-    color: white;
     border-radius: 10px;
-    font-size: 3vw;
-    margin-left: 10%;
+    padding: 10px 20px;
+    margin-left: 4.75%;
   }
   .overlay .submit {
     background-color:rgb(103, 170, 63);
     border-radius: 10px;
     padding: 10px 20px;
-    margin-left: 4.75%;
+    margin-left: 23vw;
   }
   /*.optionSelect {
     background-color: rgb(129,129,129);
