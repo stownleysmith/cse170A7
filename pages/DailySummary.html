@@ -8,7 +8,7 @@
         <a class="closeb" onclick="closeSideMenu()"><img src='../images/baseline_menu_black_48dp.png'></a>
         <a href="MyProfile.html">My Profile</a>
         <a href="DailySummary.html">Daily Summary</a>
-        <a href="PersonalizedPlan.html">Personalized Plan</a>
+        <a href="PersonalizedPlan.html">Nutrition Plan</a>
         <a href="MyFood.html">My Food</a>
         <a id="logoutb" href="../index.html">log out</a>
     </div>
@@ -17,7 +17,7 @@
         onclick=openSideMenu()><img src='../images/baseline_menu_black_48dp.png'></button>
         <span id=spacer></span>
 
-    <h1>Daily Summary</h1>
+    <h1 class="title">Daily Summary</h1>
     <p>
         <button class="overlayOpen"
         onclick=openFoodOverlay()> Add Food </button>
@@ -90,7 +90,7 @@
     </div>
 
     <div id="dsSuggestionOverlay" class="overlay">
-        <h2>Suggestions</h2>
+        <h2 class="title">Suggestions</h2>
         <a><span id="hp"
         class="optionSelect"
         onclick=optionSelected(this.id)>
@@ -315,7 +315,7 @@
 
        if(bgc == "green")
        {
-        document.getElementById(id).style.backgroundColor= "rgb(5, 126, 75)";
+        document.getElementById(id).style.backgroundColor= "rgb(135, 233, 179)";
        }
        else
        {

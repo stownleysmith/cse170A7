@@ -111,11 +111,7 @@ button {
   position: fixed;
   left: 2%;
   margin: 5%;
-  padding: 1%;
-  width: 15%;
-  text-align: center;
-  color: white;
-  background-color: rgb(135, 233, 179);
+  background-color: rgb(222, 236, 229);
 }
 
 

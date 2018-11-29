@@ -1,18 +1,18 @@
 body {
-  background-color: rgb(135, 233, 179);
+  background-color: rgb(222, 236, 229);
   color: white;
   font-family: sans-serif;
 }
 
 .container {
-  top:5%;
+  top: 13%;
   position: absolute;
   width: 50%;
   height: 100%;
   padding: 5%;
-  font-size: 6vw;
+  font-size: 5vw;
   font-family: sans-serif;
-  color: #fff;
+  color: #5A6978;
   line-height: 4vw;
   display:table;
   vertical-align:middle;
@@ -30,60 +30,64 @@ body {
 .choice label {
   width: 100%;
   font-size: 5vw;
-  left: 85%;
+  left: 100%;
   position: absolute;
+  color: #5A6978;
 }
 
 .choice input {
-  width: 30px;
-  height: 30px;
+  width: 50px;
+  height: 50px;
   border-top: 0px;
   border-left: 0px;
   border-right: 0px;
-  color: rgb(135, 233, 179);
+  color: #fff;
+}
+
+fieldset {
+  border: 0px;
 }
 
 input {
-  width: 75%;
-  left: 75%;
+  width: 85%;
+  left: 85%;
   position: absolute;
   font-size: 5vw;
   line-height: 4vw;
   border-top: 0px;
   border-left: 0px;
   border-right: 0px;
-  background-color: rgb(135, 233, 179);
-  color: #fff;
+  background-color: #fff);
+  color: #5A6978;
   border-bottom: 2px solid #fff;
 }
 
 select{
   font-size: 5vw;
-  /* color: #fff; */
-  background-color: #fff;
-  left: 75%;
+  color: #5A6978;
+  left: 85%;
   position: absolute;
-  height: 5vw;
-  width: auto;
-  text-align: center;
 }
 
 button {
-  font-size: 5vw;
-  border-radius: 5px;
   padding: 15px 32px;
-  text-align: center;
-  left: 90%;
-  position: relative;
 }
 
 .button {
   margin-top: 5%;
 }
 
-#submit {
-  background-color: #5A6978;
+.button {
+  width: 180%;
+  font-size: 6vw;
+  left: 20%;
+  position: relative;
+  background-color: #7ED957;
   color: #fff
+}
+
+#cancel {
+  background-color: #ccc;
 }
 
 .sideMenu {
@@ -93,25 +97,25 @@ button {
   z-index: 2;
   top: 0;
   left: 0;
-  background-color: lightblue;
+  background-color: rgb(135, 233, 179);
   overflow-x: hidden;
   padding-top: 25px;
   transition: 0.5s;
 }
 
 #sideMenuOpen {
-    position: fixed;
-    left: 2%;
-    margin: 5%;
-    padding-top: 1%;
-    z-index: 1;
+  position: fixed;
+  left: 2%;
+  margin: 5%;
+  background-color: rgb(222, 236, 229);
 }
+
 
 .sideMenu a {
   padding: 8px 8px 8px 32px;
   margin: 3vh 3vh 6vh 3vh;
   text-decoration: none;
-  font-size: 3vh;
+  font-size: 6vw;
   color: white;
   display: block;
   transition: 0.3s;
@@ -123,7 +127,6 @@ button {
 }
 
 .sideMenu .closeb {
-  background-color: lightgray;
-  color: white;
-  font-size: 15px;
+  width: 6vh;
+  margin-left: 70%;
 }
