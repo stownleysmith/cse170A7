@@ -18,70 +18,71 @@
     <h1 id="plan"> Nutrition Plan </h1>
     <div class="content">
 
-      <div class="nutrition_list" id="calories">
-        <form name="cal" oninput="">
-          Calories
-          <label for="cal" class="lab"> cal </label>
-          <output name="total_cal"> 2000
-        </form>
-      </div>
+        <div class="nutrition_list" id="calories">
+          <form name="cal" oninput="">
+            Calories
+            <label for="cal" class="lab"> cal </label>
+            <output name="total_cal"> 2000
+          </form>
+        </div>
 
-      <div class="nutrition_list" id="carbohydrates">
-        <form name="calbot" oninput="remaining.value = parseInt(cal_take() * carbohydrate.value/100/4)">
-          Carbohydrate
-          <input id="carbohydrate">
-          <label class="per"> % </label>
-          <label for="g" class="lab"> g </label>
-          <output name="remaining"> 100
-        </form>
-      </div>
+        <div class="nutrition_list" id="carbohydrates">
+          <form name="calbot" oninput="remaining.value = parseInt(cal_take() * carbohydrate.value/100/4)">
+            Carbohydrate
+            <input name="per" id="carbohydrate">
+            <label class="per"> % </label>
+            <label for="g" class="lab"> g </label>
+            <output name="remaining"> 100
+          </form>
+        </div>
 
-      <div class="nutrition_list" id="fat">
-        <form name="fat" oninput="remaining.value = parseInt(cal_take() * fat.value/100/9)">
-          Fat
-          <input id="fat">
-          <label class="per"> % </label>
-          <label for="g" class="lab"> g </label>
-          <output name="remaining"> 200
-        </form>
-      </div>
+        <div class="nutrition_list" id="fat">
+          <form name="fat" oninput="remaining.value = parseInt(cal_take() * fat.value/100/9)">
+            Fat
+            <input name="per" id="fat">
+            <label class="per"> % </label>
+            <label for="g" class="lab"> g </label>
+            <output name="remaining"> 200
+          </form>
+        </div>
 
-      <div class="nutrition_list" id="protein">
-        <form name="pro" oninput="remaining.value = parseInt(cal_take() * protein.value/100/4)">
-          Protein
-          <input id="protein">
-          <label class="per"> % </label>
-          <label for="g" class="lab"> g </label>
-          <output name="remaining"> 40
-        </form>
-      </div>
+        <div class="nutrition_list" id="protein">
+          <form name="pro" oninput="remaining.value = parseInt(cal_take() * protein.value/100/4)">
+            Protein
+            <input name="per" id="protein">
+            <label class="per"> % </label>
+            <label for="g" class="lab"> g </label>
+            <output name="remaining"> 40
+          </form>
+        </div>
 
-      <div class="nutrition_list" id="fiber">
-        <form oninput="">
-          Fiber
-          <label for="g" class="lab"> g </label>
-          <output name="remaining"> 30
-        </form>
-      </div>
+        <div class="nutrition_list" id="fiber">
+          <form oninput="">
+            Fiber
+            <label for="g" class="lab"> g </label>
+            <output name="remaining"> 30
+          </form>
+        </div>
 
-      <div class="nutrition_list" id="suger">
-        <form oninput="">
-          Sugar
-          <label for="g" class="lab"> g </label>
-          <output name="remaining"> 100
-        </form>
-      </div>
+        <div class="nutrition_list" id="suger">
+          <form oninput="">
+            Sugar
+            <label for="g" class="lab"> g </label>
+            <output name="remaining"> 100
+          </form>
+        </div>
 
-      <div class="nutrition_list" id="sodium">
-        <form oninput="">
-          Sodium
-          <label for="mg" class="lab"> mg </label>
-          <output name="remaining"> 15
-        </form>
-      </div>
-
-      <button class="buttons" onclick="setPlan();location.href='./DailySummary.html'" id="submit"> Submit </button>
-      <button class="buttons" onclick="location.href='./DailySummary.html'" id="cancel"> Cancel </button>
+        <div class="nutrition_list" id="sodium">
+          <form oninput="">
+            Sodium
+            <label for="mg" class="lab"> mg </label>
+            <output name="remaining"> 15
+          </form>
+        </div>
+      <form name="input_form" onsubmit="return validate()">
+        <button class="buttons" onclick="setPlan();location.href='./DailySummary.html'" id="submit" type="submit"> Submit </button>
+        <button class="buttons" onclick="location.href='./DailySummary.html'" id="cancel"> Cancel </button>
+    </form>
     </div>
   </body>
 </html>
@@ -92,7 +93,7 @@ if(localStorage.getItem('nutritionPlan')===null) {
 }
 else {
   var nutPlan = JSON.parse(localStorage.getItem('nutritionPlan'));
-  console.log(nutPlan);
+  // console.log(nutPlan);
 }
 
 setUpPlan();
@@ -113,11 +114,28 @@ function setUpPlan() {
     document.forms["calbot"]["remaining"].value = nutPlan[1]
     document.forms["fat"]["remaining"].value = nutPlan[2]
     document.forms["pro"]["remaining"].value = nutPlan[3]
-    console.log(nutPlan);
+    // console.log(nutPlan);
+  }
+}
+
+function validate() {
+  if (!(parseInt(document.forms["calbot"]["per"].value) + parseInt(document.forms["fat"]["per"].value) +
+      parseInt(document.forms["pro"]["per"].value))) {
+      alert("All persentage must be filled in.");
+      return true;
+  }
+  else if (parseInt(document.forms["calbot"]["per"].value) + parseInt(document.forms["fat"]["per"].value) +
+      parseInt(document.forms["pro"]["per"].value) !== 100) {
+      alert("The sum of persentage must be 100.");
+      return true;
+  }
+  else {
+    return false;
   }
 }
 
 function setPlan() {
+
   var carbot = document.forms["calbot"]["remaining"].value;
   var fat = document.forms["fat"]["remaining"].value;
   var pro = document.forms["pro"]["remaining"].value;
