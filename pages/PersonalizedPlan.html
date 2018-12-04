@@ -57,7 +57,7 @@
         </div>
 
         <div class="nutrition_list" id="fiber">
-          <form oninput="">
+          <form name="fib" oninput="">
             Fiber
             <label for="g" class="lab"> g </label>
             <output name="remaining"> 30
@@ -65,18 +65,18 @@
         </div>
 
         <div class="nutrition_list" id="suger">
-          <form oninput="">
+          <form name="sug" oninput="">
             Sugar
             <label for="g" class="lab"> g </label>
-            <output name="remaining"> 100
+            <output name="remaining"> 25
           </form>
         </div>
 
         <div class="nutrition_list" id="sodium">
-          <form oninput="">
+          <form name="sod" oninput="">
             Sodium
             <label for="mg" class="lab"> mg </label>
-            <output name="remaining"> 15
+            <output name="remaining"> 2300
           </form>
         </div>
       <form name="input_form" onsubmit="return validate()">
@@ -121,12 +121,12 @@ function setUpPlan() {
 function validate() {
   if (!(parseInt(document.forms["calbot"]["per"].value) + parseInt(document.forms["fat"]["per"].value) +
       parseInt(document.forms["pro"]["per"].value))) {
-      alert("All persentage must be filled in.");
+      alert("All macro percentages must be filled in.");
       return true;
   }
   else if (parseInt(document.forms["calbot"]["per"].value) + parseInt(document.forms["fat"]["per"].value) +
       parseInt(document.forms["pro"]["per"].value) !== 100) {
-      alert("The sum of persentage must be 100.");
+      alert("The sum of macro percentages must be 100.");
       return true;
   }
   else {
@@ -135,16 +135,24 @@ function validate() {
 }
 
 function setPlan() {
-
+  var cals = document.forms["cal"]["total_cal"].value;
   var carbot = document.forms["calbot"]["remaining"].value;
   var fat = document.forms["fat"]["remaining"].value;
   var pro = document.forms["pro"]["remaining"].value;
+  var fib = parseInt(document.forms["fib"]["remaining"].value); 
+  var sug = parseInt(document.forms["sug"]["remaining"].value);
+  var sod = parseInt(document.forms["sod"]["remaining"].value);
+
 
   if(nutPlan===null) {}
   else {
+    nutPlan[0] = cals;
     nutPlan[1] = carbot;
     nutPlan[2] = fat;
     nutPlan[3] = pro;
+    nutPlan[4] = fib;
+    nutPlan[5] = sug;
+    nutPlan[6] = sod;
     localStorage.setItem('nutritionPlan', JSON.stringify(nutPlan));
   }
 }
