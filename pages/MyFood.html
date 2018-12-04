@@ -35,7 +35,8 @@ function writeList() {
     if(localStorage.getItem('MyFoodList')===null)
         document.getElementById('list').textContent = "You haven't eaten anything yet!"
     else {
-        document.getElementById('list').textContent = "";
+        document.getElementById('list').textContent = " Food           Cals     ";
+        document.getElementById('list').style.whiteSpace = "pre";
         var foods = JSON.parse(localStorage.getItem('MyFoodList'));
         for(var i=0;i<foods.length;i++)
         {
@@ -53,10 +54,25 @@ function addTableRow(num) {
     var c3 = newRow.insertCell(2);
     c1.innerHTML = foods[num].name;
     c1.style.borderRadius = "10px 0 0 10px";
-    c2.innerHTML = foods[num].nutrition[0]+"cal";
-    c3.innerHTML = "Eat Again";
-    c3.style.backgroundColor = "green";
-    c3.style.color = "white";
+    c2.innerHTML = foods[num].nutrition[0]/*+"cal"*/;
+    c2.style.borderRadius = "10px 10px 10px 10px";
+    if(foods[num].nutrition[0] < 200) {
+        c2.style.backgroundColor = "lightgreen";
+    }
+    else if(foods[num].nutrition[0] < 300) {
+        c2.style.backgroundColor = "yellow";
+    }
+    else if(foods[num].nutrition[0] < 400) {
+        c2.style.backgroundColor = "orange";
+    }
+    else {
+        c2.style.backgroundColor = "rgb(245,61,61)";
+    }
+    c3.innerHTML = "+".bold();
+    c3.style.fontSize = "8vw";
+    c3.style.paddingBottom = "1%";
+    /*c3.style.backgroundColor = "green";*/
+    c3.style.color = "green";
     c3.style.borderRadius = "0 10px 10px 0";
     c3.onclick = function(){
         reAddFood((foods.length-1)-newRow.rowIndex)};
@@ -65,6 +81,7 @@ function addTableRow(num) {
 function reAddFood(num) {
     var foods = JSON.parse(localStorage.getItem('MyFoodList'));
     localStorage.setItem('tF', JSON.stringify(foods[num]));
+    document.location.href = 'DailySummary.html';
     document.getElementById("rdsPopup").style.visibility="visible";
 }
 
