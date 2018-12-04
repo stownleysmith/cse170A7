@@ -60,6 +60,8 @@ input {
   border-bottom: 0px;
   background-color: rgb(222, 236, 229);
   color: #5A6978;
+  -webkit-text-fill-color: #5A6978;
+  -webkit-opacity: 1;
 }
 
 select{
