@@ -19,15 +19,15 @@
     <div class="content">
 
       <div class="nutrition_list" id="calories">
-        <form oninput="">
+        <form name="cal" oninput="">
           Calories
           <label for="cal" class="lab"> cal </label>
-          <output name="remaining"> 2000
+          <output name="total_cal"> 2000
         </form>
       </div>
 
       <div class="nutrition_list" id="carbohydrates">
-        <form name="calbot" oninput="remaining.value = parseInt(100 - parseInt(carbohydrate.value) * 1.6)">
+        <form name="calbot" oninput="remaining.value = parseInt(cal_take() * carbohydrate.value/100/4)">
           Carbohydrate
           <input id="carbohydrate">
           <label class="per"> % </label>
@@ -37,7 +37,7 @@
       </div>
 
       <div class="nutrition_list" id="fat">
-        <form name="fat" oninput="remaining.value = parseInt(200 - parseInt(fat.value) * 1.6)">
+        <form name="fat" oninput="remaining.value = parseInt(cal_take() * fat.value/100/9)">
           Fat
           <input id="fat">
           <label class="per"> % </label>
@@ -47,7 +47,7 @@
       </div>
 
       <div class="nutrition_list" id="protein">
-        <form name="pro" oninput="remaining.value = parseInt(40 - parseInt(protein.value) / 40)">
+        <form name="pro" oninput="remaining.value = parseInt(cal_take() * protein.value/100/4)">
           Protein
           <input id="protein">
           <label class="per"> % </label>
@@ -57,7 +57,7 @@
       </div>
 
       <div class="nutrition_list" id="fiber">
-        <form oninput="remaining.value = parseInt(30 - parseInt(fiber.value) * 1.6)">
+        <form oninput="">
           Fiber
           <label for="g" class="lab"> g </label>
           <output name="remaining"> 30
@@ -65,7 +65,7 @@
       </div>
 
       <div class="nutrition_list" id="suger">
-        <form oninput="remaining.value = parseInt(100 - parseInt(suger.value) * 1.6)">
+        <form oninput="">
           Sugar
           <label for="g" class="lab"> g </label>
           <output name="remaining"> 100
@@ -73,7 +73,7 @@
       </div>
 
       <div class="nutrition_list" id="sodium">
-        <form oninput="remaining.value = parseInt(15 - parseInt(protein.value) * 1.6)">
+        <form oninput="">
           Sodium
           <label for="mg" class="lab"> mg </label>
           <output name="remaining"> 15
@@ -97,9 +97,19 @@ else {
 
 setUpPlan();
 
+function cal_take() {
+  return document.forms["cal"]["total_cal"].value;
+}
+
 function setUpPlan() {
   if(nutPlan===null) {}
   else {
+    if (localStorage.getItem('gen')==='male') {
+      document.forms["cal"]["total_cal"].value = 2200
+    }
+    else {
+      document.forms["cal"]["total_cal"].value = 1800
+    }
     document.forms["calbot"]["remaining"].value = nutPlan[1]
     document.forms["fat"]["remaining"].value = nutPlan[2]
     document.forms["pro"]["remaining"].value = nutPlan[3]
