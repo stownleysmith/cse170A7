@@ -44,7 +44,7 @@ body {
     border: 1px solid rgb(75, 73, 73);
     margin:auto;
     border-collapse: separate;
-    font-size: 3vw;
+    font-size: 4vw;
 
   }
 
@@ -260,7 +260,7 @@ body {
   }
 
   .removeRow {
-    background-color: rgb(211, 84, 84);
+    background-color: #fff;
   }
 .rowp {
     background-color: rgb(48,180,48);
