@@ -25,7 +25,8 @@ body {
 
   h2{
     text-align: center;
-    font-size: 4vw;
+    font-size: 5vw;
+    font-weight: normal;
   }
 
   span {
@@ -40,12 +41,11 @@ body {
   }
 
   table,th{
-
     border: 1px solid rgb(75, 73, 73);
     margin:auto;
     border-collapse: separate;
     font-size: 4vw;
-
+    font-weight: lighter;
   }
 
   #nutrientTable {
@@ -70,9 +70,9 @@ body {
 
   .overlayOpen{
     padding: 15px 32px;
-    background-color: rgb(5, 126, 75);
+    background-color: #7ED957;
     color: white;
-    font-size: 3vw;
+    font-size: 3.7vw;
     margin:10px;
   }
 
@@ -156,8 +156,7 @@ body {
   .overlay .closeb {
     background-color: lightgray;
     border-radius: 10px;
-    padding: 10px 20px;
-    margin-left: 4.75%;
+    padding: 15px 40px;
   }
   .overlay .submit {
     background-color:rgb(103, 170, 63);
@@ -210,7 +209,8 @@ body {
   }
 
   .overlay .closeb.result2cancel {
-    margin-left: 40vw;
+    margin-left: 36vw;
+    margin-top: 8vw;
   }
 
   .overlay .optionSelect {

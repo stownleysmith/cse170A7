@@ -16,6 +16,7 @@
       <button id="sideMenuOpen" onclick=openSideMenu()> <img src='../images/baseline_menu_black_48dp.png'> </button>
 
     <h1 id="plan"> Nutrition Plan </h1>
+
     <div class="content">
 
         <div class="nutrition_list" id="calories">
@@ -80,7 +81,7 @@
           </form>
         </div>
       <form name="input_form" onsubmit="return validate()">
-        <button class="buttons" onclick="setPlan();location.href='./DailySummary.html'" id="submit" type="submit"> Submit </button>
+        <button class="buttons" onclick="setPlan();location.href='./DailySummary.html'" id="submit" type="submit"> Customize Macronutrient Ratio </button>
         <button class="buttons" onclick="location.href='./DailySummary.html'" id="cancel"> Cancel </button>
     </form>
     </div>
@@ -139,7 +140,7 @@ function setPlan() {
   var carbot = document.forms["calbot"]["remaining"].value;
   var fat = document.forms["fat"]["remaining"].value;
   var pro = document.forms["pro"]["remaining"].value;
-  var fib = parseInt(document.forms["fib"]["remaining"].value); 
+  var fib = parseInt(document.forms["fib"]["remaining"].value);
   var sug = parseInt(document.forms["sug"]["remaining"].value);
   var sod = parseInt(document.forms["sod"]["remaining"].value);
 

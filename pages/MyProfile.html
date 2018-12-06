@@ -3,18 +3,16 @@
 <html lang="en">
 
 <html>
-    <div id="sideMenu" class="sideMenu">
-        <a class="closeb" onclick="closeSideMenu()"><img src='../images/baseline_menu_black_48dp.png'></a>
-        <a href="MyProfile.html">My Profile</a>
-        <a href="DailySummary.html">Daily Summary</a>
-        <a href="PersonalizedPlan.html">Nutrition Plan</a>
-        <a href="MyFood.html">My Food</a>
-        <a id="logoutb" href="../index.html">log out</a>
-    </div>
-    <button id="sideMenuOpen" onclick=openSideMenu()> <img src='../images/baseline_menu_black_48dp.png'> </button>
-
-
       <body>
+        <div id="sideMenu" class="sideMenu">
+            <a class="closeb" onclick="closeSideMenu()"><img src='../images/baseline_menu_black_48dp.png'></a>
+            <a href="MyProfile.html">My Profile</a>
+            <a href="DailySummary.html">Daily Summary</a>
+            <a href="PersonalizedPlan.html">Nutrition Plan</a>
+            <a href="MyFood.html">My Food</a>
+            <a id="logoutb" href="../index.html">log out</a>
+        </div>
+        <button id="sideMenuOpen" onclick=openSideMenu()> <img src='../images/baseline_menu_black_48dp.png'> </button>
         <div class="container">
           <form name="input_form">
             <fieldset disabled>
@@ -22,6 +20,8 @@
                 <label for="name"> <b>Name</b> </label>
                 <input name="name" class="field">
               </div>
+
+              <h1 id="title"> My Profile </h1>
 
               <div class="text">
                 <label for="gender"> <b>Gender</b> </label>

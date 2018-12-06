@@ -21,6 +21,7 @@ body {
 
 .nutrition_list {
   font-size: 6vw;
+  font-weight: lighter;
   width: 100%;
   display: inline-block;
   vertical-align: top;
@@ -31,11 +32,11 @@ body {
 }
 
 #plan {
-  font-size: 10vw;
+  font-size: 8vw;
   color: #5A6978;
   width: 100%;
-  left: 35%;
-  top: 10%;
+  left: 40%;
+  top: 13%;
   position: absolute;
 }
 
@@ -67,9 +68,8 @@ body {
 }
 
 button {
-  font-size: 6vw;
-  border-radius: 5px;
-  padding: 15px 32px;
+  border-radius: 8px;
+  padding: 32px 32px;
   text-align: center;
 }
 
@@ -78,9 +78,9 @@ button {
 }
 
 .buttons {
-  width: 100%;
-  font-size: 6vw;
-  left: 15%;
+  width: 110%;
+  font-size: 6.7vw;
+  left: 7%;
   position: relative;
   background-color: #7ED957;
   color: #fff
