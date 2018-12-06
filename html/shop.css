@@ -1,3 +1,4 @@
+
 body{
     background-image: url("StoreBackground.png");
     background-repeat: no-repeat;
@@ -12,13 +13,22 @@ body{
     position: fixed; left:90%; top:90%;
 }
 
+#text {
+  font-size: 8vw;
+  color: cornflowerblue;
+  width: 100%;
+  left: 5%;
+  top: 35%;
+  position: absolute;
+}
+
 #awayBs a {
     text-decoration: none;
     background-color: darkgreen;
     color: white;
     margin-left: 1%;
     padding:1%;
-    font-size: 3vw;
+    font-size: 4vw;
     border-radius: 8px;
 }
 
@@ -28,7 +38,7 @@ body{
     position: fixed; left:25%; top:10%;
     background-color: rgb(222, 236, 229);
     border-radius: 10px;
-    font-size: 3vw;
+    font-size: 5vw;
     color: rgb(75, 73, 73);
     visibility: hidden;
 }
@@ -39,8 +49,8 @@ body{
 
 #foodPopup div a{
     margin:1%;
-    margin-left: 4%;
-    background-color: green;
+    margin-left: 9%;
+    background-color: darkgreen;
     border-radius: 5px;
     text-decoration: none;
     color: white;
@@ -51,4 +61,6 @@ body{
     border-radius:5px;
     background-color: red;
     color:white;
+
+
 }
