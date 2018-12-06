@@ -32,12 +32,14 @@ body {
 }
 
 #plan {
-  font-size: 8vw;
+  font-size: 11vw;
   color: #5A6978;
   width: 100%;
-  left: 40%;
-  top: 13%;
+  left: 35%;
+  top: 9%;
   position: absolute;
+  font-variant: all-small-caps;
+  font-family: serif;
 }
 
 .nutrition_list input{
@@ -120,6 +122,7 @@ button {
   margin: 3vh 3vh 6vh 3vh;
   text-decoration: none;
   font-size: 6.9vw;
+  font-variant-caps: small-caps;
   color: white;
   display: block;
   transition: 0.3s;

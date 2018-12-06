@@ -5,12 +5,14 @@ body {
 }
 
 .container {
-  top: 13%;
+  top: 15%;
+  left: 6%;
   position: absolute;
   width: 50%;
   height: 100%;
   padding: 5%;
   font-size: 5vw;
+  font-weight: lighter;
   font-family: sans-serif;
   color: #5A6978;
   line-height: 4vw;
@@ -24,7 +26,8 @@ body {
 }
 
 .choice {
-  padding: 15%;
+    padding-right: 15%;
+    padding-bottom: 30%;
 }
 
 .choice label {
@@ -50,16 +53,16 @@ fieldset {
 
 input {
   width: 85%;
-  left: 85%;
+  left: 83%;
   position: absolute;
   font-size: 5vw;
   line-height: 4vw;
   border-top: 0px;
-  border-left: 0px;
+  padding-left: 21px;
   border-right: 0px;
-  background-color: #fff);
+  background-color: #fff;
   color: #5A6978;
-  border-bottom: 2px solid #fff;
+  border-bottom: 0px solid #fff;
 }
 
 select{

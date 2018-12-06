@@ -4,7 +4,9 @@ body {
   font-family: sans-serif;
 }
 #title {
-  font-size: 8vw;
+  font-variant: all-small-caps;
+  font-family: serif;
+  font-size: 10vw;
   color: #5A6978;
   width: 100%;
   left: 32%;
@@ -12,12 +14,13 @@ body {
   position: fixed;
 }
 .container {
-  top: 13%;
+  top: 15%;
   position: absolute;
   width: 50%;
   height: 100%;
   padding: 5%;
   font-size: 5vw;
+  font-weight: lighter;
   font-family: sans-serif;
   color: #5A6978;
   line-height: 4vw;
@@ -31,7 +34,8 @@ body {
 }
 
 .choice {
-  padding: 15%;
+  padding-right: 15%;
+  padding-bottom: 30%;
 }
 
 .choice label {
@@ -59,7 +63,8 @@ input {
   width: 60%;
   left: 85%;
   position: absolute;
-  font-size: 5vw;
+  font-size: 4.6vw;
+  font-weight: bold;
   line-height: 4vw;
   border-top: 0px;
   border-left: 0px;
@@ -125,6 +130,7 @@ button {
   margin: 3vh 3vh 6vh 3vh;
   text-decoration: none;
   font-size: 6vw;
+  font-variant-caps: small-caps;
   color: white;
   display: block;
   transition: 0.3s;

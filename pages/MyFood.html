@@ -35,7 +35,7 @@ function writeList() {
     if(localStorage.getItem('MyFoodList')===null)
         document.getElementById('list').textContent = "You haven't eaten anything yet!"
     else {
-        document.getElementById('list').textContent = "     Food      Cals ";
+        document.getElementById('list').textContent = "     Food   Calories ";
         document.getElementById('list').style.whiteSpace = "pre";
         var foods = JSON.parse(localStorage.getItem('MyFoodList'));
         for(var i=0;i<foods.length;i++)
@@ -71,6 +71,7 @@ function addTableRow(num) {
     c3.innerHTML = "+".bold();
     c3.style.fontSize = "8vw";
     c3.style.paddingBottom = "1%";
+    c3.style.paddingLeft = "17%";
     /*c3.style.backgroundColor = "green";*/
     c3.style.color = "green";
     c3.style.borderRadius = "0 10px 10px 0";

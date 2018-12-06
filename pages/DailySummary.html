@@ -18,7 +18,7 @@
         <span id=spacer></span>
 
     <h1 class="title">Daily Summary</h1>
-    <h2> Today's Food.. </h2>
+    <h2>Food Diary</h2>
     <table id="consumedTable">
     </table>
     <p>
@@ -143,7 +143,7 @@
 
         </div>
 
-    <h2> Nutrients Remaining.. </h2>
+    <h2>Nutrients Remaining</h2>
     <table id="nutrientTable">
         <tr>
             <th class="hrow">Calories</th>
@@ -313,13 +313,13 @@
     {
        var bgc = document.getElementById(id).style.backgroundColor;
 
-       if(bgc == "green")
+       if(bgc == "rgb(20, 210, 120)")
        {
         document.getElementById(id).style.backgroundColor= "rgb(135, 233, 179)";
        }
        else
        {
-        document.getElementById(id).style.backgroundColor = "green";
+        document.getElementById(id).style.backgroundColor = "rgb(20, 210, 120)";
        }
     }
 
@@ -329,7 +329,7 @@
         var results = document.getElementsByClassName("result");
         for(var i=options.length-1;i>=0;i--)
         {
-            if(options[i].style.backgroundColor == "green")
+            if(options[i].style.backgroundColor == "rgb(20, 210, 120)")
             {
                 document.getElementById(results[i].id).style.visibility="visible";
             }

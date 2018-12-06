@@ -16,7 +16,9 @@ body {
 
   h1{
     text-align: center;
-    font-size: 6vw;
+    font-size: 8vw;
+    font-variant: all-small-caps;
+    font-family: serif;
   }
 
   h1.title {
@@ -27,12 +29,16 @@ body {
     text-align: center;
     font-size: 5vw;
     font-weight: normal;
+    font-family: serif;
+
   }
 
   span {
-    padding: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
     color: white;
-    font-size: 6vw;
+    font-size: 5vw;
+    font-weight: lighter;
     display: inline-block;
   }
   span a{
@@ -102,6 +108,7 @@ body {
     margin: 3vh 3vh 6vh 3vh;
     text-decoration: none;
     font-size: 4.85vw;
+    font-variant-caps: small-caps;
     color: white;
     display: block;
     transition: 0.3s;
@@ -159,9 +166,9 @@ body {
     padding: 15px 40px;
   }
   .overlay .submit {
-    background-color:rgb(103, 170, 63);
-    border-radius: 10px;
-    padding: 10px 20px;
+    background-color: rgb(20, 210, 120);
+    border-radius: 9px;
+    padding: 14px 42px;
     margin-left: 23vw;
   }
   /*.optionSelect {
@@ -182,21 +189,23 @@ body {
 
   .overlay .result2 button
   {
-    background-color: rgb(103, 170, 63);
+    background-color: rgb(20, 210, 120);
     margin-left:10%;
-    font-size: 4vw;
+    font-size: 5vw;
+    font-weight: lighter;
     width: 60vw;
     height: 5vh;
   }
   .overlay .result2 .shop
   {
-    background-color:rgb(103, 170, 63);
+    background-color:rgb(20, 210, 120);
     border-radius: 10px;
     padding: 15px 32px;
     display: inline;
     color: white;
     margin-left: 3%;
-    font-size: 4vw;
+    font-size: 4.5vw;
+    font-weight: lighter;
     height: 5vh;
   }
   .overlay .result2
@@ -214,9 +223,9 @@ body {
   }
 
   .overlay .optionSelect {
-    border-radius:10px;
+    border-radius:8px;
     display: block;
-    margin: 1vh 20vw 1vh 20vw;
+    margin: -3vh 20vw 6vh 20vw;
     text-align: center;
   }
 
