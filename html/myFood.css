@@ -81,6 +81,7 @@ p {
     border-collapse: separate;
     border-spacing: 0 .1em;
     width:50%;
+    font-weight: lighter;
   }
 
   #mfTable td {

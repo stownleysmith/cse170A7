@@ -38,7 +38,7 @@
         </div>
     </div>
 
-    <h2 id="text">The red dot marks the location of food in store, click on it to add to your daily summary!</h2>
+    <h2 id="text">The red dot marks the location of food in the store, click on it to add it to your daily summary!</h2>
 
 </body>
 
@@ -62,8 +62,8 @@ function closeFoodMenu()
 
 function positionUser()
 {
-    var lLocations = [8, 16, 27, 35, 46, 54, 65, 73];
-    var tLocations = [15, 28];
+    var lLocations = [7, 14, 26, 33, 45, 52, 64, 71];
+    var tLocations = [11, 24];
     document.getElementById("youAreHere").style.left = lLocations[~~(Math.random()*8)]+"%";
     document.getElementById("youAreHere").style.top = tLocations[~~(Math.random()*2)]+"%";
 }
